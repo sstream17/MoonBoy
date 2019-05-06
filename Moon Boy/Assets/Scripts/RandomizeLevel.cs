@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using Pathfinding;
 
 public class RandomizeLevel : MonoBehaviour
 {
 
     public SpriteShapeController spriteShape;
+    public AstarPath graph;
 
     public GameObject[] enemies;
     public int numberOfEnemies = 3;
@@ -31,6 +33,7 @@ public class RandomizeLevel : MonoBehaviour
           splineIndex = splineIndex + 1;
         }
         spriteShape.BakeCollider();
+        AstarPath.active.Scan();
         spline = spriteShape.spline;
         int numberOfPoints = spline.GetPointCount() - 15;
         for (int i = 0; i < numberOfEnemies; i++) {
