@@ -8,7 +8,6 @@ public class RandomizeLevel : MonoBehaviour
 {
 
     public SpriteShapeController spriteShape;
-    public AstarPath graph;
 
     public GameObject[] enemies;
     public int numberOfEnemies = 3;
