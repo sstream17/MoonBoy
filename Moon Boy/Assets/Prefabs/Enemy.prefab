@@ -207,6 +207,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  startingDistance: 25
+  stoppingDistance: 15
+  retreatDistance: 10
   updateRate: 2
   speed: 900
   forceMode: 0

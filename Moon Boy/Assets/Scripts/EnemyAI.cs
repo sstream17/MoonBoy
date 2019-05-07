@@ -8,6 +8,9 @@ using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
     public Transform target;
+    public float startingDistance;
+    public float stoppingDistance;
+    public float retreatDistance;
     private bool searchingForPlayer = false;
 
     public float updateRate = 2f;
@@ -42,7 +45,7 @@ public class EnemyAI : MonoBehaviour
                 searchingForPlayer = true;
                 StartCoroutine(SearchForPlayer());
             }
-            yield break;
+            yield return false;
         }
 
         seeker.StartPath(transform.position, target.position, OnPathComplete);
@@ -61,13 +64,12 @@ public class EnemyAI : MonoBehaviour
             searchingForPlayer = false;
             target = searchResult.transform;
             StartCoroutine(UpdatePath());
-            yield break;
+            yield return false;
         }
     }
 
 
     void Start() {
-
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -98,6 +100,8 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
+        float distanceToPlayer = Vector2.Distance(transform.position, target.position);
+
         if (currentWaypoint >= path.vectorPath.Count) {
             if (pathHasEnded) {
                 return;
@@ -110,7 +114,15 @@ public class EnemyAI : MonoBehaviour
         Vector2 direction = (path.vectorPath[currentWaypoint] - transform.position).normalized;
         direction = direction * speed * Time.fixedDeltaTime;
 
-        rb.AddForce(direction, forceMode);
+        if (distanceToPlayer > stoppingDistance && distanceToPlayer < startingDistance) {
+            rb.AddForce(direction, forceMode);
+        }
+        else if (distanceToPlayer < stoppingDistance && distanceToPlayer > retreatDistance) {
+            transform.position = this.transform.position;
+        }
+        else if (distanceToPlayer < retreatDistance) {
+            rb.AddForce(-direction, forceMode);
+        }
 
         float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
         if (distance < nextWaypointDistance) {
