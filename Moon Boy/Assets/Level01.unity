@@ -684,13 +684,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoDisplay: {fileID: 1592787412}
   grenadeDisplay: {fileID: 1981718344}
+  weapon: {fileID: 11400000, guid: a045a03b5cd3ee64885fe3fad322d8bf, type: 2}
   firePoint: {fileID: 991834811}
-  bulletPrefab: {fileID: 1539632861300792, guid: 96ae8f9dd8fd89941bc4d858375f035b,
-    type: 3}
   grenadePrefab: {fileID: 7536536321022634131, guid: 890bd70dfce2b984aafbcff9fbfac30a,
     type: 3}
   isGrenade: 0
-  ammo: 50
   grenades: 3
 --- !u!1 &627944625
 GameObject:
