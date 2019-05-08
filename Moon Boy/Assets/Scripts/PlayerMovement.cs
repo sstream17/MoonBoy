@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour {
 	bool crouch = false;
 	bool canFly = true;
 
+	[HideInInspector]
+	public bool playerOnCollectible = false;
+	[HideInInspector]
+	public WeaponSpawn weaponSpawn;
+
 	// Update is called once per frame
 	void Update () {
 		float energyModifier = 0f;
@@ -109,5 +114,23 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate () {
 		// Move our character
 		controller.Move(horizontalMove * Time.fixedDeltaTime, verticalVelocity * Time.fixedDeltaTime, crouch, canFly);
+	}
+
+
+	void OnTriggerEnter2D (Collider2D hitInfo) {
+		GameObject collider = hitInfo.gameObject;
+		if (collider.tag == "Collectible") {
+			playerOnCollectible = true;
+			weaponSpawn = collider.GetComponentInParent<WeaponSpawn>();
+		}
+	}
+
+
+    void OnTriggerExit2D (Collider2D hitInfo) {
+		GameObject collider = hitInfo.gameObject;
+		if (collider.tag == "Collectible") {
+			playerOnCollectible = false;
+			weaponSpawn = null;
+		}
 	}
 }

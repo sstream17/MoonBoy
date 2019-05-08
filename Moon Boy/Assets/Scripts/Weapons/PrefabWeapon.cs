@@ -30,6 +30,13 @@ public class PrefabWeapon : MonoBehaviour {
     }
 
 
+	public void SetTimer() {
+		timer = new Timer(weapon.fireRate * 1000f);
+		timer.Elapsed += HandleTimer;
+		timer.AutoReset = false;
+	}
+
+
 	void Shoot() {
 		gameObject.GetComponentInParent<PlayerMovement>().timeSinceLastMove = 0;
 		weapon.ammo = weapon.ammo - 1;
@@ -56,9 +63,7 @@ public class PrefabWeapon : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
-		timer = new Timer(weapon.fireRate * 1000f);
-		timer.Elapsed += HandleTimer;
-		timer.AutoReset = false;
+		SetTimer();
 		ammoDisplay.text = weapon.ammo.ToString("0");
 		grenadeDisplay.text = grenades.ToString("0");
 	}
