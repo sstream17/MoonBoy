@@ -2232,7 +2232,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 532478081}
-        m_MethodName: Shoot
+        m_MethodName: SendShoot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3363,6 +3363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swapImage: {fileID: 1587456501}
+  animator: {fileID: 0}
 --- !u!114 &2022605564
 MonoBehaviour:
   m_ObjectHideFlags: 0
