@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level 1 Laser Pistol
   m_EditorClassIdentifier: 
   ammo: 50
-  damage: 100
+  damage: 50
   speed: 20
   fireRate: 2
   canRapidFire: 0
