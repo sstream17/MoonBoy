@@ -30,7 +30,6 @@ public class PrefabWeapon : MonoBehaviour {
 
 	void Update() {
 		timeSinceLastShot = timeSinceLastShot + Time.deltaTime;
-		Debug.Log(weapon.fireRate / timeSinceLastShot);
 	}
 
 
