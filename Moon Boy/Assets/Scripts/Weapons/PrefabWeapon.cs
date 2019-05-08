@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
@@ -16,37 +18,62 @@ public class PrefabWeapon : MonoBehaviour {
 	public GameObject grenadePrefab;
 	public bool isGrenade = false;
 
+	private bool hasShot = false;
+	private bool allowShoot = true;
+	private Timer timer;
+
 	public int grenades = 3;
 
-	private float timeSinceLastShot;
+
+	private void HandleTimer(System.Object source, ElapsedEventArgs e) {
+		allowShoot = true;
+    }
+
+
+	void Shoot() {
+		gameObject.GetComponentInParent<PlayerMovement>().timeSinceLastMove = 0;
+		weapon.ammo = weapon.ammo - 1;
+		GameObject bulletClone = Instantiate(weapon.bulletPrefab, firePoint.position, firePoint.rotation, transform);
+		Destroy(bulletClone, 10);
+		ammoDisplay.text = weapon.ammo.ToString("0");
+		timer.Start();
+	}
+
+
+	void ThrowGrenade() {
+		gameObject.GetComponentInParent<PlayerMovement>().timeSinceLastMove = 0;
+		grenades = grenades - 1;
+		GameObject grenadeClone = Instantiate(grenadePrefab, firePoint.position, transform.rotation);
+		Destroy(grenadeClone, 10);
+		grenadeDisplay.text = grenades.ToString("0");
+	}
+
+
+	public void SendShoot() {
+		hasShot = true;
+	}
 
 
 	// Start is called before the first frame update
 	void Start() {
-		timeSinceLastShot = weapon.fireRate;
+		timer = new Timer(weapon.fireRate * 1000f);
+		timer.Elapsed += HandleTimer;
+		timer.AutoReset = false;
 		ammoDisplay.text = weapon.ammo.ToString("0");
 		grenadeDisplay.text = grenades.ToString("0");
 	}
+
 
 	void Update() {
-		timeSinceLastShot = timeSinceLastShot + Time.deltaTime;
-	}
-
-
-	public void Shoot() {
-		gameObject.GetComponentInParent<PlayerMovement>().timeSinceLastMove = 0;
-		if (!isGrenade && weapon.ammo > 0 && (weapon.fireRate / timeSinceLastShot) < 1f) {
-			timeSinceLastShot = 1f;
-			weapon.ammo = weapon.ammo - 1;
-			GameObject bulletClone = Instantiate(weapon.bulletPrefab, firePoint.position, firePoint.rotation, transform);
-			Destroy(bulletClone, 10);
+		if (hasShot && allowShoot && !isGrenade && weapon.ammo > 0) {
+			allowShoot = false;
+			hasShot = false;
+			Shoot();
 		}
-		else if (isGrenade && grenades > 0){
-			grenades = grenades - 1;
-			GameObject grenadeClone = Instantiate(grenadePrefab, firePoint.position, transform.rotation);
-			Destroy(grenadeClone, 10);
+		else if (hasShot && isGrenade && grenades > 0) {
+			hasShot = false;
+			ThrowGrenade();
 		}
-		ammoDisplay.text = weapon.ammo.ToString("0");
-		grenadeDisplay.text = grenades.ToString("0");
+		hasShot = false;
 	}
 }
