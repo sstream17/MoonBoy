@@ -39,7 +39,8 @@ public class RandomizeLevel : MonoBehaviour
             Vector3 randomPosition = spline.GetPosition((int) Mathf.Floor(Random.value * numberOfPoints) + 4);
             randomPosition.y = randomPosition.y + 8f;
             randomPosition.z = 0;
-            Instantiate(enemies[0], randomPosition, Quaternion.identity);
+            int randomEnemy = (int) Mathf.Floor(Random.value * enemies.Length);
+            Instantiate(enemies[randomEnemy], randomPosition, Quaternion.identity);
         }
     }
 }
