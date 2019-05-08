@@ -5,9 +5,14 @@ using UnityEngine.UI;
 
 public class SwapWeapon : MonoBehaviour {
     public Image swapImage;
+    public Animator animator;
+
+
+    void Start() {
+        animator = swapImage.GetComponent<Animator>();
+    }
 
     public void Swap() {
-        Animator animator = swapImage.GetComponent<Animator>();
         animator.Play("Swap", 0, 0);
     }
 }
