@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98aaca8d89a71c46b4d465483729181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: a045a03b5cd3ee64885fe3fad322d8bf, type: 2}
   firePoint: {fileID: 8285865611672384995}
   target: {fileID: 0}
   startingDistance: 0

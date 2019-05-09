@@ -19,3 +19,5 @@ MonoBehaviour:
   canRapidFire: 0
   bulletPrefab: {fileID: 1539632861300792, guid: 96ae8f9dd8fd89941bc4d858375f035b,
     type: 3}
+  enemyBulletPrefab: {fileID: 750704347464454781, guid: e3d73bc0e6df35642a8cf073fd8eaba6,
+    type: 3}
