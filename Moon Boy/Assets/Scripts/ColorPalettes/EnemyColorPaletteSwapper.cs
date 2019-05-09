@@ -31,12 +31,6 @@ namespace ActionCode.ColorPalettes
         }
 
 
-        private void OnDisable()
-        {
-            SwitchDefaultPalette();
-        }
-
-
         public void SwitchDefaultPalette()
         {
             SwitchPalette(defaultPalette);
