@@ -18,6 +18,13 @@ public class EnemyAI : MonoBehaviour
     private Seeker seeker;
     private Rigidbody2D rb;
 
+    public bool trackMotion = false;
+    public Animator animator;
+    [SerializeField] private LayerMask m_WhatIsGround;
+	[SerializeField] private Transform m_GroundCheck;
+    const float k_GroundedRadius = 0.3f;
+    private bool m_Grounded;
+
     public Path path;
 
     public float speed = 100f;
@@ -87,6 +94,11 @@ public class EnemyAI : MonoBehaviour
     }
 
 
+    void OnLanding() {
+        m_Grounded = true;
+    }
+
+
     void FixedUpdate() {
         if (target == null) {
             if (!searchingForPlayer) {
@@ -98,6 +110,22 @@ public class EnemyAI : MonoBehaviour
 
         if (path == null) {
             return;
+        }
+
+        if (trackMotion) {
+            bool wasGrounded = m_Grounded;
+    		m_Grounded = false;
+    		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+    		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
+    		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+    		for (int i = 0; i < colliders.Length; i++) {
+    			if (colliders[i].gameObject != gameObject) {
+    				m_Grounded = true;
+    				if (!wasGrounded) {
+    					OnLanding();
+    				}
+    			}
+    		}
         }
 
         float distanceToPlayer = Vector2.Distance(transform.position, target.position);
