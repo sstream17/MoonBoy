@@ -10,7 +10,6 @@ public class EnemyWeapon : MonoBehaviour {
     [HideInInspector]
     public float startingDistance;
 
-	private bool hasShot = false;
 	private bool allowShoot = true;
     private bool searchingForPlayer = false;
     private LayerMask layerMask;
