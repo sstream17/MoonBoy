@@ -7,6 +7,8 @@ public class EnemyWeapon : MonoBehaviour {
 	public Weapon weapon;
 	public Transform firePoint;
     public Transform target;
+	private EnemyAI enemy;
+
     [HideInInspector]
     public float startingDistance;
 
@@ -14,8 +16,7 @@ public class EnemyWeapon : MonoBehaviour {
     private bool searchingForPlayer = false;
     private LayerMask layerMask;
 
-    private Timer timer;
-
+    private Timer shootTimer;
 
 
 	private void HandleTimer(System.Object source, ElapsedEventArgs e) {
@@ -24,9 +25,9 @@ public class EnemyWeapon : MonoBehaviour {
 
 
 	public void SetTimer() {
-		timer = new Timer(weapon.fireRate * 1000f);
-		timer.Elapsed += HandleTimer;
-		timer.AutoReset = false;
+		shootTimer = new Timer(weapon.fireRate * 1000f);
+		shootTimer.Elapsed += HandleTimer;
+		shootTimer.AutoReset = false;
 	}
 
 
@@ -55,16 +56,21 @@ public class EnemyWeapon : MonoBehaviour {
         if (hitInfo && (firePoint.position - target.position).magnitude <= startingDistance) {
             Player player = hitInfo.transform.GetComponent<Player>();
             if (player != null) {
+				enemy.moveUpwards = false;
                 allowShoot = false;
                 Shoot();
-                timer.Start();
+                shootTimer.Start();
             }
+			else {
+				enemy.moveUpwards = true;
+			}
         }
     }
 
 
     void Start() {
-        startingDistance = GetComponentInParent<EnemyAI>().startingDistance;
+        enemy = GetComponentInParent<EnemyAI>();
+		startingDistance = enemy.startingDistance;
         SetTimer();
         layerMask = LayerMask.GetMask("Player", "Ground", "Enemy");
         if (target == null) {
@@ -78,6 +84,13 @@ public class EnemyWeapon : MonoBehaviour {
 
 
 	void Update() {
+		if (target == null) {
+            if (!searchingForPlayer) {
+                searchingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
+            return;
+        }
         bool playerInFront = target.position.x < firePoint.position.x;
 		if (allowShoot && playerInFront) {
 			AttemptShot();
