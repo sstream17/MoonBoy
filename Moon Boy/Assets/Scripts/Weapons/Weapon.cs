@@ -14,4 +14,5 @@ public class Weapon : ScriptableObject {
     public bool canRapidFire;
 
     public GameObject bulletPrefab;
+	public GameObject enemyBulletPrefab;
 }
