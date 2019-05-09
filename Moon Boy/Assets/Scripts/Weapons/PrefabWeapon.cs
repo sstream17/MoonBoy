@@ -9,29 +9,24 @@ using TMPro;
 
 public class PrefabWeapon : MonoBehaviour {
 
-	public TextMeshProUGUI ammoDisplay;
-	public TextMeshProUGUI grenadeDisplay;
-
-	public Weapon weapon;
-
 	public Transform firePoint;
 	public GameObject grenadePrefab;
 	public bool isGrenade = false;
 
 	private bool hasShot = false;
-	private bool allowShoot = true;
-	private Timer timer;
+	private static bool allowShoot = true;
+	private static Timer timer;
 
 	public int grenades = 3;
 
 
-	private void HandleTimer(System.Object source, ElapsedEventArgs e) {
+	private static void HandleTimer(System.Object source, ElapsedEventArgs e) {
 		allowShoot = true;
     }
 
 
-	public void SetTimer() {
-		timer = new Timer(weapon.fireRate * 1000f);
+	public static void SetTimer() {
+		timer = new Timer(GameControl.control.playerWeapon.fireRate * 1000f);
 		timer.Elapsed += HandleTimer;
 		timer.AutoReset = false;
 	}
@@ -39,10 +34,10 @@ public class PrefabWeapon : MonoBehaviour {
 
 	void Shoot() {
 		gameObject.GetComponentInParent<PlayerMovement>().timeSinceLastMove = 0;
-		weapon.ammo = weapon.ammo - 1;
-		GameObject bulletClone = Instantiate(weapon.bulletPrefab, firePoint.position, firePoint.rotation, transform);
+		GameControl.control.playerWeapon.ammo = GameControl.control.playerWeapon.ammo - 1;
+		GameObject bulletClone = Instantiate(GameControl.control.playerWeapon.bulletPrefab, firePoint.position, firePoint.rotation, transform);
 		Destroy(bulletClone, 10);
-		ammoDisplay.text = weapon.ammo.ToString("0");
+		GameControl.control.ammoDisplay.text = GameControl.control.playerWeapon.ammo.ToString("0");
 		timer.Start();
 	}
 
@@ -52,7 +47,7 @@ public class PrefabWeapon : MonoBehaviour {
 		grenades = grenades - 1;
 		GameObject grenadeClone = Instantiate(grenadePrefab, firePoint.position, transform.rotation);
 		Destroy(grenadeClone, 10);
-		grenadeDisplay.text = grenades.ToString("0");
+		GameControl.control.grenadeDisplay.text = grenades.ToString("0");
 	}
 
 
@@ -63,14 +58,14 @@ public class PrefabWeapon : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
-		SetTimer();
-		ammoDisplay.text = weapon.ammo.ToString("0");
-		grenadeDisplay.text = grenades.ToString("0");
+		PrefabWeapon.SetTimer();
+		GameControl.control.ammoDisplay.text = GameControl.control.playerWeapon.ammo.ToString("0");
+		GameControl.control.grenadeDisplay.text = grenades.ToString("0");
 	}
 
 
 	void Update() {
-		if (hasShot && allowShoot && !isGrenade && weapon.ammo > 0) {
+		if (hasShot && allowShoot && !isGrenade && GameControl.control.playerWeapon.ammo > 0) {
 			allowShoot = false;
 			hasShot = false;
 			Shoot();

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SwapWeapon : MonoBehaviour {
-    public Image swapImage;
     public Animator animator;
     public GameObject playerObject;
     public PlayerMovement player;
@@ -12,16 +11,15 @@ public class SwapWeapon : MonoBehaviour {
 
 
     void Start() {
-        animator = swapImage.GetComponent<Animator>();
+        animator = GameControl.control.swapImage.GetComponent<Animator>();
         playerObject = GameObject.FindGameObjectWithTag("Player");
         player = playerObject.GetComponent<PlayerMovement>();
-        prefabWeapon = playerObject.GetComponentInChildren<PrefabWeapon>();
     }
 
     public void Swap() {
         animator.Play("Swap", 0, 0);
-        prefabWeapon.weapon = player.weaponSpawn.weapon;
-        prefabWeapon.SetTimer();
+        GameControl.control.playerWeapon = player.weaponSpawn.weapon;
+        PrefabWeapon.SetTimer();
     }
 
 

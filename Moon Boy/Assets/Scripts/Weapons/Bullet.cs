@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-	Weapon weapon;
 	public Rigidbody2D rb;
 	public GameObject impactEffect;
 
@@ -13,13 +12,12 @@ public class Bullet : MonoBehaviour {
 		if (Input.touchCount > 0) {
 			foreach (Touch touch in Input.touches) {
 				if (touch.phase == TouchPhase.Ended) {
-					weapon = GetComponentInParent<PrefabWeapon>().weapon;
 					Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
 					touchPosition.z = 0f;
 					float deltaY = touchPosition.y - rb.position.y;
 					float deltaX = touchPosition.x - rb.position.x;
 					float theta = Mathf.Atan(deltaY / deltaX);
-					Vector2 targetVelocity = new Vector2(weapon.speed * Mathf.Cos(theta), weapon.speed * Mathf.Sin(theta));
+					Vector2 targetVelocity = new Vector2(GameControl.control.playerWeapon.speed * Mathf.Cos(theta), GameControl.control.playerWeapon.speed * Mathf.Sin(theta));
 					rb.velocity = targetVelocity;
 				}
 			}
@@ -29,7 +27,7 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D hitInfo) {
 		Enemy enemy = hitInfo.GetComponent<Enemy>();
 		if (enemy != null) {
-			enemy.TakeDamage(weapon.damage);
+			enemy.TakeDamage(GameControl.control.playerWeapon.damage);
 		}
 
 		GameObject impactEffectClone = Instantiate(impactEffect, transform.position, transform.rotation);
