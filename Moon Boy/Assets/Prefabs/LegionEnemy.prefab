@@ -372,7 +372,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8285865612559901925}
-  - component: {fileID: 8285865612559901924}
+  - component: {fileID: 7331433948705424982}
   m_Layer: 13
   m_Name: PrefabWeapon
   m_TagString: Untagged
@@ -394,7 +394,7 @@ Transform:
   m_Father: {fileID: 8285865611753646072}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8285865612559901924
+--- !u!114 &7331433948705424982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -403,14 +403,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8285865612559901926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df60c8bec1b4a2e4c944bbabe45ce278, type: 3}
+  m_Script: {fileID: 11500000, guid: b98aaca8d89a71c46b4d465483729181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoDisplay: {fileID: 0}
-  grenadeDisplay: {fileID: 0}
-  weapon: {fileID: 11400000, guid: a045a03b5cd3ee64885fe3fad322d8bf, type: 2}
+  weapon: {fileID: 0}
   firePoint: {fileID: 8285865611672384995}
-  grenadePrefab: {fileID: 7536536321022634131, guid: 890bd70dfce2b984aafbcff9fbfac30a,
-    type: 3}
-  isGrenade: 0
-  grenades: 3
+  target: {fileID: 0}
+  startingDistance: 0
