@@ -294,13 +294,14 @@ MonoBehaviour:
   retreatDistance: 10
   updateRate: 2
   trackMotion: 1
-  animator: {fileID: 0}
+  animator: {fileID: 8285865611753646069}
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 33281
   m_GroundCheck: {fileID: 8285865612382427944}
   speed: 900
   forceMode: 0
+  moveUpwards: 0
   pathHasEnded: 0
   nextWaypointDistance: 3
 --- !u!1 &8285865612382427945
