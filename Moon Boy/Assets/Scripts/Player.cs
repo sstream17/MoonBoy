@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
         healthDisplay.text = health.ToString("0");
 
 		if (health <= 0) {
+            health = 0;
+            healthDisplay.text = health.ToString("0");
 			Die();
 		}
 	}
