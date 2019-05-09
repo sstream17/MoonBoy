@@ -1225,6 +1225,9 @@ MonoBehaviour:
   spriteShape: {fileID: 878298279}
   enemies:
   - {fileID: 7264045931670987465, guid: 6c01a8e7e645ac04c98abed59eea1a7d, type: 3}
+  - {fileID: 8285865611753646064, guid: 8ee5cbdcff7d75f4ebb9617524953243, type: 3}
+  - {fileID: 8285865611753646064, guid: 8ee5cbdcff7d75f4ebb9617524953243, type: 3}
+  - {fileID: 8285865611753646064, guid: 8ee5cbdcff7d75f4ebb9617524953243, type: 3}
   numberOfEnemies: 3
   deltaX: 3
   deltaY: 5
@@ -2821,7 +2824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748636603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9122229, y: 4.000005, z: -8}
+  m_LocalPosition: {x: 3.748889, y: 4.0000005, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2024092561}
@@ -3398,7 +3401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba517423717d404fab2bf8e2cadafe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthDisplay: {fileID: 364968692}
   health: 100
+  damageModifier: 0.25
   deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}
 --- !u!61 &2022605566
