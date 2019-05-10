@@ -15,4 +15,5 @@ public class Weapon : ScriptableObject {
 
     public GameObject bulletPrefab;
 	public GameObject enemyBulletPrefab;
+	public GameObject spawnPrefab;
 }
