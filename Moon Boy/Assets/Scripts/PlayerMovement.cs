@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour {
 
 	public CharacterController2D controller;
 	public Animator animator;
+	public Joystick joystick;
 	public Transform firePoint;
+	public TextMeshProUGUI energyDisplay;
 
 	public float runSpeed = 40f;
 	public float flyingSpeed = 0.5f;
@@ -25,12 +27,11 @@ public class PlayerMovement : MonoBehaviour {
 	[HideInInspector]
 	public WeaponSpawn weaponSpawn;
 
-
 	// Update is called once per frame
 	void Update () {
 		float energyModifier = 0f;
 
-		GameControl.control.energyDisplay.text = energy.ToString("0");
+		energyDisplay.text = energy.ToString("0");
 		if (energy <= 0) {
 			canFly = false;
 		}
@@ -45,10 +46,10 @@ public class PlayerMovement : MonoBehaviour {
 		firePoint.localPosition = new Vector2(1.07f, 0.181f);
 		timeSinceLastMove = timeSinceLastMove + Time.deltaTime;
 
-		horizontalMove = GameControl.control.joystick.Horizontal * runSpeed;
+		horizontalMove = joystick.Horizontal * runSpeed;
 		animator.SetFloat("Speed", horizontalMove);
 
-		verticalMove = GameControl.control.joystick.Vertical;
+		verticalMove = joystick.Vertical;
 		animator.SetFloat("VerticalSpeed", verticalMove);
 
 		if (horizontalMove != 0 || verticalMove != 0) {

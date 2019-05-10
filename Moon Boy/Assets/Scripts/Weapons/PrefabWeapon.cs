@@ -9,6 +9,9 @@ using TMPro;
 
 public class PrefabWeapon : MonoBehaviour {
 
+	public TextMeshProUGUI ammoDisplay;
+	public TextMeshProUGUI grenadeDisplay;
+
 	public Transform firePoint;
 	public GameObject grenadePrefab;
 	public bool isGrenade = false;
@@ -37,7 +40,7 @@ public class PrefabWeapon : MonoBehaviour {
 		GameControl.control.playerWeapon.ammo = GameControl.control.playerWeapon.ammo - 1;
 		GameObject bulletClone = Instantiate(GameControl.control.playerWeapon.bulletPrefab, firePoint.position, firePoint.rotation, transform);
 		Destroy(bulletClone, 10);
-		GameControl.control.ammoDisplay.text = GameControl.control.playerWeapon.ammo.ToString("0");
+		ammoDisplay.text = GameControl.control.playerWeapon.ammo.ToString("0");
 		timer.Start();
 	}
 
@@ -47,7 +50,7 @@ public class PrefabWeapon : MonoBehaviour {
 		grenades = grenades - 1;
 		GameObject grenadeClone = Instantiate(grenadePrefab, firePoint.position, transform.rotation);
 		Destroy(grenadeClone, 10);
-		GameControl.control.grenadeDisplay.text = grenades.ToString("0");
+		grenadeDisplay.text = grenades.ToString("0");
 	}
 
 
@@ -58,9 +61,9 @@ public class PrefabWeapon : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
-		PrefabWeapon.SetTimer();
-		GameControl.control.ammoDisplay.text = GameControl.control.playerWeapon.ammo.ToString("0");
-		GameControl.control.grenadeDisplay.text = grenades.ToString("0");
+		SetTimer();
+		ammoDisplay.text = GameControl.control.playerWeapon.ammo.ToString("0");
+		grenadeDisplay.text = grenades.ToString("0");
 	}
 
 

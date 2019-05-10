@@ -13,41 +13,11 @@ public class GameControl : MonoBehaviour
 
     public Weapon playerWeapon;
 
-    public Transform currentPlayer;
-    public Transform playerPrefab;
     public Transform spawnPoint;
-    public Joystick joystick;
 
     private PrefabWeapon prefabWeapon;
-    private SwapWeapon swapWeapon;
-    private ToggleWeapon toggleWeapon;
 
-    public TextMeshProUGUI healthDisplay;
-    public TextMeshProUGUI energyDisplay;
-    public TextMeshProUGUI ammoDisplay;
-    public TextMeshProUGUI grenadeDisplay;
-
-    public Image swapImage;
-    public Image grenadeImage;
-    public Image ammoImage;
-
-
-    void SetUI() {
-        control.healthDisplay.text = control.currentPlayer.GetComponent<Player>().health.ToString("0");
-        control.energyDisplay.text = control.currentPlayer.GetComponent<PlayerMovement>().energy.ToString("0");
-        control.ammoDisplay.text = control.playerWeapon.ammo.ToString("0");
-        control.grenadeDisplay.text = control.prefabWeapon.grenades.ToString("0");
-    }
-
-
-    void InitializePlayer() {
-        control.currentPlayer = Instantiate(control.playerPrefab, control.spawnPoint.position, Quaternion.identity);
-        control.prefabWeapon = control.currentPlayer.GetComponentInChildren<PrefabWeapon>();
-        control.swapWeapon = control.currentPlayer.GetComponent<SwapWeapon>();
-        control.toggleWeapon = control.currentPlayer.GetComponent<ToggleWeapon>();
-        control.camera.GetComponent<CinemachineVirtualCamera>().Follow = control.currentPlayer;
-        SetUI();
-    }
+    public int[] enemyWeapons;
 
 
     void Awake() {
@@ -58,13 +28,22 @@ public class GameControl : MonoBehaviour
         else if (control != this) {
             Destroy(gameObject);
         }
+        if (control.camera == null) {
+            GameObject searchResult = GameObject.FindGameObjectWithTag("Camera");
+            if (searchResult != null) {
+                control.camera = searchResult;
+            }
+            else {
+                return;
+            }
+        }
         control.spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
-        InitializePlayer();
+        Debug.Log(control.enemyWeapons[0].ToString() + control.enemyWeapons[1].ToString() + control.enemyWeapons[2].ToString());
     }
 
 
     void RespawnPlayer() {
-        InitializePlayer();
+        return;
     }
 
 
@@ -75,18 +54,4 @@ public class GameControl : MonoBehaviour
 		Destroy(deathEffectClone, 5);
 	}
 
-
-    public void Shoot() {
-        control.prefabWeapon.SendShoot();
-    }
-
-
-    public void Swap() {
-        control.swapWeapon.AttemptSwap();
-    }
-
-
-    public void Toggle() {
-        control.toggleWeapon.Toggle();
-    }
 }

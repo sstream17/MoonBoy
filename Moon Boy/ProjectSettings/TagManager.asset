@@ -7,6 +7,12 @@ TagManager:
   - Through
   - Collectible
   - SpawnPoint
+  - Camera
+  - HUD
+  - Joystick
+  - SwapButton
+  - ToggleButton
+  - ShootArea
   layers:
   - Default
   - TransparentFX
