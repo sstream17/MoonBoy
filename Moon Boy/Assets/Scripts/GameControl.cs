@@ -15,8 +15,6 @@ public class GameControl : MonoBehaviour
 
     public Transform spawnPoint;
 
-    private PrefabWeapon prefabWeapon;
-
     public int[] enemyWeapons;
 
 
@@ -42,15 +40,18 @@ public class GameControl : MonoBehaviour
     }
 
 
-    void RespawnPlayer() {
-        return;
+    void RespawnPlayer(Player playerToSpawn) {
+        playerToSpawn.health = 100;
+        playerToSpawn.UpdateUI();
+        playerToSpawn.gameObject.transform.position = control.spawnPoint.position;
+        playerToSpawn.gameObject.SetActive(true);
     }
 
 
     public void KillPlayer(Player playerToKill) {
+        playerToKill.gameObject.SetActive(false);
 		GameObject deathEffectClone = Instantiate(playerToKill.deathEffect, playerToKill.transform.position, Quaternion.identity);
-		Destroy(playerToKill.gameObject);
-        RespawnPlayer();
+        RespawnPlayer(playerToKill);
 		Destroy(deathEffectClone, 5);
 	}
 

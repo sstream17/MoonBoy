@@ -12,13 +12,17 @@ public class Player : MonoBehaviour {
 	public GameObject deathEffect;
 
 
+    public void UpdateUI() {
+        healthDisplay.text = health.ToString("0");
+    }
+
 	public void TakeDamage (int damage) {
 		health -= (int) Mathf.Ceil(damage * damageModifier);
-        healthDisplay.text = health.ToString("0");
+        UpdateUI();
 
 		if (health <= 0) {
             health = 0;
-            healthDisplay.text = health.ToString("0");
+            UpdateUI();
 			GameControl.control.KillPlayer(this);
 		}
 	}
