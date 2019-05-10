@@ -30,6 +30,7 @@ public class GameControl : MonoBehaviour
 
 
     void RespawnPlayer(Player playerToSpawn) {
+        playerToSpawn.gameObject.GetComponent<PlayerMovement>().energy = 100f;
         playerToSpawn.health = 100;
         playerToSpawn.UpdateUI();
         playerToSpawn.gameObject.transform.position = control.spawnPoint.position;
