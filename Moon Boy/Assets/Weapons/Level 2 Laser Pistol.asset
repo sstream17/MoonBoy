@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Level 2 Laser Pistol
   m_EditorClassIdentifier: 
   ammo: 50
-  damage: 100
+  damage: 50
   speed: 20
-  fireRate: 1
+  fireRate: 0.75
   canRapidFire: 0
   bulletPrefab: {fileID: 8059361397368289103, guid: 0b5829b7ca0326446ad9c29f4a8190c9,
     type: 3}
