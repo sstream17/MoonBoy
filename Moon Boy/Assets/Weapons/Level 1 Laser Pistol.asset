@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249449219e780e14d9b72f4b2e126e4a, type: 3}
   m_Name: Level 1 Laser Pistol
   m_EditorClassIdentifier: 
-  ammo: 50
+  ammo: 100
   damage: 100
   speed: 20
   fireRate: 2
@@ -20,4 +20,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1539632861300792, guid: 96ae8f9dd8fd89941bc4d858375f035b,
     type: 3}
   enemyBulletPrefab: {fileID: 750704347464454781, guid: e3d73bc0e6df35642a8cf073fd8eaba6,
+    type: 3}
+  spawnPrefab: {fileID: 6197431481772946374, guid: 38d2893bd363a174f962740b165c6954,
     type: 3}
