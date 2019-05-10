@@ -370,7 +370,8 @@ MonoBehaviour:
   palettes:
   - {fileID: 11400000, guid: c319a3909fce2514999251716e35b73c, type: 2}
   - {fileID: 11400000, guid: 34d6d73a6c9195e4ab9fc635b4a7f1df, type: 2}
-  - {fileID: 11400000, guid: a572b735d7ff1844ba74b2c5a2510bd2, type: 2}
+  - {fileID: 11400000, guid: 30868fc9b40c6a442bac2512ffb2934f, type: 2}
+  - {fileID: 11400000, guid: 66a95fd7c2e25c943aaa611b5a71b73b, type: 2}
 --- !u!114 &7824615418195406199
 MonoBehaviour:
   m_ObjectHideFlags: 0
