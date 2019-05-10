@@ -12,6 +12,8 @@ public class GameControl : MonoBehaviour
 
     public Weapon playerWeapon;
 
+    public int playerAmmo;
+
     public Transform spawnPoint;
 
     public Weapon[] enemyWeapons;
