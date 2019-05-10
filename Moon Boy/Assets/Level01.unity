@@ -3114,75 +3114,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 254498896109941749, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1131103999621779149, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548140415377564645, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271569604576628642, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6204659009383529412, guid: 2d7c632285f1e2142906da34c9ba8f77,
         type: 3}
       propertyPath: m_Name
       value: GameControl
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 734563739}
-    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: joystick
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: healthDisplay
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: energyDisplay
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: ammoDisplay
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: grenadeDisplay
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: swapImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: grenadeImage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
-        type: 3}
-      propertyPath: ammoImage
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6204659009383529415, guid: 2d7c632285f1e2142906da34c9ba8f77,
         type: 3}
@@ -3238,6 +3173,71 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 734563739}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: healthDisplay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: energyDisplay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: ammoDisplay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: grenadeDisplay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: swapImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: grenadeImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: ammoImage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 254498896109941749, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131103999621779149, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548140415377564645, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271569604576628642, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d7c632285f1e2142906da34c9ba8f77, type: 3}
@@ -3372,6 +3372,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: swapImage
+      value: 
+      objectReference: {fileID: 211172110}
+    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 211172109}
+    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: grenadeImage
+      value: 
+      objectReference: {fileID: 1669033187}
+    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: ammoImage
+      value: 
+      objectReference: {fileID: 2044231368}
     - target: {fileID: 7824615418195406088, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3427,41 +3447,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7824615418195406193, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: energyDisplay
-      value: 
-      objectReference: {fileID: 1403199043}
-    - target: {fileID: 7824615418195406193, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: joystick
-      value: 
-      objectReference: {fileID: 540409388}
-    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: grenadeImage
-      value: 
-      objectReference: {fileID: 1669033187}
-    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: ammoImage
-      value: 
-      objectReference: {fileID: 2044231368}
-    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: swapImage
-      value: 
-      objectReference: {fileID: 211172110}
-    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 211172109}
-    - target: {fileID: 7824615418195406199, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: healthDisplay
-      value: 
-      objectReference: {fileID: 1716739129}
     - target: {fileID: 7824615418732647989, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
       propertyPath: ammoDisplay
@@ -3472,5 +3457,20 @@ PrefabInstance:
       propertyPath: grenadeDisplay
       value: 
       objectReference: {fileID: 150583677}
+    - target: {fileID: 7824615418195406193, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: energyDisplay
+      value: 
+      objectReference: {fileID: 1403199043}
+    - target: {fileID: 7824615418195406193, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 540409388}
+    - target: {fileID: 7824615418195406199, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: healthDisplay
+      value: 
+      objectReference: {fileID: 1716739129}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417c2b71e3e2cff4db18acfcfd136724, type: 3}
