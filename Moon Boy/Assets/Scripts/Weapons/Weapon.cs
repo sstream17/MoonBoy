@@ -10,7 +10,7 @@ public class Weapon : ScriptableObject {
 	public int ammo = 50;
     public int damage;
 	public float speed;
-    public int fireRate;
+    public float fireRate;
     public bool canRapidFire;
 
     public GameObject bulletPrefab;
