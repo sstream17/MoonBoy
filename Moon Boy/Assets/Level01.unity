@@ -2867,7 +2867,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2891,7 +2891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748636603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.9122229, y: 4.000005, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2024092561}
@@ -3219,6 +3219,11 @@ PrefabInstance:
       propertyPath: ammoImage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6204659009001044008, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 254498896109941749, guid: 2d7c632285f1e2142906da34c9ba8f77,
         type: 3}
       propertyPath: m_isInputParsingRequired
@@ -3472,5 +3477,15 @@ PrefabInstance:
       propertyPath: healthDisplay
       value: 
       objectReference: {fileID: 1716739129}
+    - target: {fileID: 7824615418195406093, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824615418195406092, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417c2b71e3e2cff4db18acfcfd136724, type: 3}

@@ -12,7 +12,9 @@ public class EnemyBullet : MonoBehaviour
 	void Start () {
         weapon = GetComponentInParent<EnemyWeapon>().weapon;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        float deltaY = player.transform.position.y - rb.position.y;
+        bool isCrouching = player.gameObject.GetComponent<PlayerMovement>().crouch;
+        float yOffset = isCrouching ? -0.6f : 0.4f;
+        float deltaY = player.transform.position.y - rb.position.y + yOffset;
         float deltaX = player.transform.position.x - rb.position.x;
         float theta = Mathf.Atan(deltaY / deltaX);
         Vector2 targetVelocity = new Vector2(-weapon.speed * Mathf.Cos(theta), -weapon.speed * Mathf.Sin(theta));
