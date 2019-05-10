@@ -7,6 +7,10 @@ using Pathfinding;
 [RequireComponent (typeof (Seeker))]
 public class EnemyShooterAI : MonoBehaviour
 {
+    public GameObject originalLocation;
+    private float distanceFromStart;
+    public float maximumDistance;
+    private bool returning = false;
     public Transform target;
     public float startingDistance;
     public float stoppingDistance;
@@ -64,6 +68,16 @@ public class EnemyShooterAI : MonoBehaviour
         StartCoroutine(UpdatePath());
     }
 
+
+    IEnumerator Return(Vector2 direction) {
+        while (distanceFromStart <= -1f) {
+            rb.AddForce(direction, forceMode);
+            yield return new WaitForSeconds(1f / updateRate);
+        }
+        returning = false;
+        yield return false;
+    }
+
     IEnumerator SearchForPlayer() {
         GameObject searchResult = GameObject.FindGameObjectWithTag("Player");
         if (searchResult == null) {
@@ -92,6 +106,8 @@ public class EnemyShooterAI : MonoBehaviour
 
 
     void Start() {
+        originalLocation = new GameObject("OriginalLocation");
+        originalLocation.transform.position = transform.position;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -110,6 +126,16 @@ public class EnemyShooterAI : MonoBehaviour
 
 
     void FixedUpdate() {
+        distanceFromStart = transform.position.x - originalLocation.transform.position.x;
+        if (distanceFromStart < -maximumDistance) {
+            Vector2 returnDirection = (originalLocation.transform.position - transform.position).normalized;
+            returnDirection = returnDirection * speed * 0.5f * Time.fixedDeltaTime;
+            movingBackward = true;
+            returning = true;
+            StartCoroutine(Return(returnDirection));
+            return;
+        }
+
         if (target == null) {
             if (!searchingForPlayer) {
                 searchingForPlayer = true;
@@ -152,23 +178,25 @@ public class EnemyShooterAI : MonoBehaviour
         Vector2 direction = (path.vectorPath[currentWaypoint] - transform.position).normalized;
         direction = direction * speed * Time.fixedDeltaTime;
 
-        if (distanceToPlayer < startingDistance && moveUpwards) {
-            rb.AddForce(Vector2.up * speed * Time.fixedDeltaTime, forceMode);
-            return;
-        }
+        if (!returning) {
+            if (distanceToPlayer < startingDistance && moveUpwards) {
+                rb.AddForce(Vector2.up * speed * Time.fixedDeltaTime, forceMode);
+                return;
+            }
 
-        if (distanceToPlayer > stoppingDistance && distanceToPlayer < startingDistance) {
-            movingForward = direction.x < -15f ? true : false;
-            rb.AddForce(direction, forceMode);
-        }
-        else if (distanceToPlayer < stoppingDistance && distanceToPlayer > retreatDistance) {
-            movingForward = false;
-            movingBackward = false;
-            transform.position = this.transform.position;
-        }
-        else if (distanceToPlayer < retreatDistance) {
-            movingBackward = -direction.x > 10f ? true : false;
-            rb.AddForce(-direction, forceMode);
+            if (distanceToPlayer > stoppingDistance && distanceToPlayer < startingDistance) {
+                movingForward = direction.x < -15f ? true : false;
+                rb.AddForce(direction, forceMode);
+            }
+            else if (distanceToPlayer < stoppingDistance && distanceToPlayer > retreatDistance) {
+                movingForward = false;
+                movingBackward = false;
+                transform.position = this.transform.position;
+            }
+            else if (distanceToPlayer < retreatDistance) {
+                movingBackward = -direction.x > 10f ? true : false;
+                rb.AddForce(-direction, forceMode);
+            }
         }
 
         SetAnimator(m_Grounded, movingForward, movingBackward);

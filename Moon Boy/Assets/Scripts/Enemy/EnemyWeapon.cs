@@ -7,7 +7,7 @@ public class EnemyWeapon : MonoBehaviour {
 	public Weapon weapon;
 	public Transform firePoint;
     public Transform target;
-	private EnemyAI enemy;
+	private EnemyShooterAI enemy;
 
     [HideInInspector]
     public float startingDistance;
@@ -69,7 +69,7 @@ public class EnemyWeapon : MonoBehaviour {
 
 
     void Start() {
-        enemy = GetComponentInParent<EnemyAI>();
+        enemy = GetComponentInParent<EnemyShooterAI>();
 		startingDistance = enemy.startingDistance;
         SetTimer();
         layerMask = LayerMask.GetMask("Player", "Ground", "Enemy");
