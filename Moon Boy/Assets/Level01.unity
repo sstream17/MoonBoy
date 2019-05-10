@@ -1400,6 +1400,8 @@ MonoBehaviour:
   - {fileID: 8285865611753646064, guid: 8ee5cbdcff7d75f4ebb9617524953243, type: 3}
   - {fileID: 8285865611753646064, guid: 8ee5cbdcff7d75f4ebb9617524953243, type: 3}
   - {fileID: 8285865611753646064, guid: 8ee5cbdcff7d75f4ebb9617524953243, type: 3}
+  enemyWeapons:
+  - {fileID: 11400000, guid: a045a03b5cd3ee64885fe3fad322d8bf, type: 2}
   numberOfEnemies: 3
   deltaX: 3
   deltaY: 5
@@ -2891,7 +2893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748636603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9122229, y: 4.000005, z: -8}
+  m_LocalPosition: {x: 3.748889, y: 4.0000005, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2024092561}

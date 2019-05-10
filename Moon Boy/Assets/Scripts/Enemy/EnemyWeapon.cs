@@ -69,6 +69,8 @@ public class EnemyWeapon : MonoBehaviour {
 
 
     void Start() {
+		int randomWeaponIndex = (int) Mathf.Floor(Random.value * GameControl.control.enemyWeapons.Length);
+		weapon = GameControl.control.enemyWeapons[randomWeaponIndex];
         enemy = GetComponentInParent<EnemyShooterAI>();
 		startingDistance = enemy.startingDistance;
         SetTimer();

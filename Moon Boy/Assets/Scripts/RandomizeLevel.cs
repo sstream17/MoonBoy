@@ -10,12 +10,14 @@ public class RandomizeLevel : MonoBehaviour
     public SpriteShapeController spriteShape;
 
     public GameObject[] enemies;
+    public Weapon[] enemyWeapons;
     public int numberOfEnemies = 3;
     public float deltaX = 3f;
     public float deltaY = 3f;
 
     // Start is called before the first frame update
     void Start() {
+        GameControl.control.enemyWeapons = enemyWeapons;
         Spline spline = spriteShape.spline;
         float xMinimum = spline.GetPosition(0).x + 20f;
         float xMaximum = spline.GetPosition(1).x;

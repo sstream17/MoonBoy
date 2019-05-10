@@ -14,7 +14,7 @@ public class GameControl : MonoBehaviour
 
     public Transform spawnPoint;
 
-    public int[] enemyWeapons;
+    public Weapon[] enemyWeapons;
 
 
     void Awake() {

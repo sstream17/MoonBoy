@@ -1165,10 +1165,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f2d22a88feefd439b33d0cf1828d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1491187384}
+  levelToLoad: 0
+  current_palette_index: 0
   playerWeapon: {fileID: 11400000, guid: a045a03b5cd3ee64885fe3fad322d8bf, type: 2}
   spawnPoint: {fileID: 302400103}
-  enemyWeapons: 050000000600000007000000
+  enemyWeapons: []
 --- !u!4 &925648285
 Transform:
   m_ObjectHideFlags: 0
@@ -1446,9 +1447,12 @@ MonoBehaviour:
   - {fileID: 8285865611753646064, guid: 8ee5cbdcff7d75f4ebb9617524953243, type: 3}
   - {fileID: 8285865611753646064, guid: 8ee5cbdcff7d75f4ebb9617524953243, type: 3}
   - {fileID: 8285865611753646064, guid: 8ee5cbdcff7d75f4ebb9617524953243, type: 3}
-  numberOfEnemies: 3
-  deltaX: 3
-  deltaY: 5
+  enemyWeapons:
+  - {fileID: 11400000, guid: a045a03b5cd3ee64885fe3fad322d8bf, type: 2}
+  - {fileID: 11400000, guid: 42771f25a70709f41a6612defa07bee8, type: 2}
+  numberOfEnemies: 4
+  deltaX: 5
+  deltaY: 2
 --- !u!60 &1011768054
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3310,6 +3314,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: swapImage
+      value: 
+      objectReference: {fileID: 990152732}
+    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 990152731}
+    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: grenadeImage
+      value: 
+      objectReference: {fileID: 1185111850}
+    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: ammoImage
+      value: 
+      objectReference: {fileID: 2000284592}
     - target: {fileID: 7824615418195406088, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3365,41 +3389,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7824615418195406193, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: joystick
-      value: 
-      objectReference: {fileID: 237157450}
-    - target: {fileID: 7824615418195406193, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: energyDisplay
-      value: 
-      objectReference: {fileID: 1015816584}
-    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: grenadeImage
-      value: 
-      objectReference: {fileID: 1185111850}
-    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: ammoImage
-      value: 
-      objectReference: {fileID: 2000284592}
-    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: swapImage
-      value: 
-      objectReference: {fileID: 990152732}
-    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 990152731}
-    - target: {fileID: 7824615418195406199, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: healthDisplay
-      value: 
-      objectReference: {fileID: 607926877}
     - target: {fileID: 7824615418732647989, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
       propertyPath: ammoDisplay
@@ -3410,5 +3399,20 @@ PrefabInstance:
       propertyPath: grenadeDisplay
       value: 
       objectReference: {fileID: 1825142552}
+    - target: {fileID: 7824615418195406193, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 237157450}
+    - target: {fileID: 7824615418195406193, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: energyDisplay
+      value: 
+      objectReference: {fileID: 1015816584}
+    - target: {fileID: 7824615418195406199, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: healthDisplay
+      value: 
+      objectReference: {fileID: 607926877}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417c2b71e3e2cff4db18acfcfd136724, type: 3}
