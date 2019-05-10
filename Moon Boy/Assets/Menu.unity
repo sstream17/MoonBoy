@@ -1157,9 +1157,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1099475579}
-        m_MethodName: SwapPalette
-        m_Mode: 3
+      - m_Target: {fileID: 1099475580}
+        m_MethodName: SwitchDefaultPalette
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
