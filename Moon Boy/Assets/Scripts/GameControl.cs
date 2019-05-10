@@ -8,6 +8,8 @@ public class GameControl : MonoBehaviour
 
     public int levelToLoad;
 
+    public int current_palette_index = 0;
+
     public Weapon playerWeapon;
 
     public Transform spawnPoint;

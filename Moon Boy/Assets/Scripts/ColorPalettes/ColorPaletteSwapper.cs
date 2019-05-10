@@ -31,7 +31,7 @@ namespace ActionCode.ColorPalettes
         }
 
 
-        private void OnDisable()
+        private void OnApplicationQuit()
         {
             SwitchDefaultPalette();
         }
