@@ -74,18 +74,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f2d22a88feefd439b33d0cf1828d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  levelToLoad: 0
+  current_palette_index: 0
   playerWeapon: {fileID: 11400000, guid: a045a03b5cd3ee64885fe3fad322d8bf, type: 2}
-  currentPlayer: {fileID: 0}
-  playerPrefab: {fileID: 262384609866842187, guid: 417c2b71e3e2cff4db18acfcfd136724,
-    type: 3}
+  playerAmmo: 50
   spawnPoint: {fileID: 6204659009001044011}
-  joystick: {fileID: 0}
-  healthDisplay: {fileID: 0}
-  energyDisplay: {fileID: 0}
-  ammoDisplay: {fileID: 0}
-  grenadeDisplay: {fileID: 0}
-  swapImage: {fileID: 0}
-  grenadeImage: {fileID: 0}
-  ammoImage: {fileID: 0}
-  enemyWeapons: 010000000200000003000000
+  enemyWeapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
