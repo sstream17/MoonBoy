@@ -41,9 +41,8 @@ GameObject:
   - component: {fileID: 7824615418195406088}
   - component: {fileID: 7824615418195406091}
   - component: {fileID: 7824615418195406090}
-  - component: {fileID: 7824615418195406093}
-  - component: {fileID: 7824615418195406092}
-  - component: {fileID: 7824615418195406095}
+  - component: {fileID: 1586130222194816136}
+  - component: {fileID: 5694214300443397231}
   - component: {fileID: 7824615418195406094}
   - component: {fileID: 7824615418195406193}
   - component: {fileID: 7824615418195406192}
@@ -146,8 +145,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &7824615418195406093
-BoxCollider2D:
+--- !u!70 &1586130222194816136
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -159,61 +158,25 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2, y: -0.4}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 2.0625, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.87, y: 0.9}
-  m_EdgeRadius: 0
---- !u!61 &7824615418195406092
-BoxCollider2D:
+  m_Offset: {x: 0.15, y: -0.25}
+  m_Size: {x: 0.874, y: 2.5}
+  m_Direction: 0
+--- !u!70 &5694214300443397231
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7824615418195406198}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.018317938}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 2.0625, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8739734, y: 1.9789863}
-  m_EdgeRadius: 0
---- !u!58 &7824615418195406095
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7824615418195406198}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -1.05}
-  serializedVersion: 2
-  m_Radius: 0.4485168
+  m_Offset: {x: 0.2241131, y: -0.67411256}
+  m_Size: {x: 1.0222263, y: 1.6517615}
+  m_Direction: 0
 --- !u!114 &7824615418195406094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,8 +197,8 @@ MonoBehaviour:
     m_Bits: 33335
   m_GroundCheck: {fileID: 7824615419547933575}
   m_CeilingCheck: {fileID: 7824615418523809202}
-  m_CrouchDisableCollider: {fileID: 7824615418195406092}
-  m_CrouchEnableCollider: {fileID: 7824615418195406093}
+  m_CrouchDisableCollider: {fileID: 1586130222194816136}
+  m_CrouchEnableCollider: {fileID: 5694214300443397231}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
