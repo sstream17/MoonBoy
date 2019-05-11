@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour {
 		EnemyWeapon weapon = gameObject.GetComponentInChildren<EnemyWeapon>();
 		if (weapon != null) {
 			GameObject weaponSpawn = Instantiate(weapon.weapon.spawnPrefab, transform.position, Quaternion.identity);
-			weaponSpawn.GetComponent<WeaponSpawn>().weapon = weapon.weapon;
+			weaponSpawn.GetComponent<WeaponSpawn>().Initialize(weapon.weapon);
 		}
 		Object deathEffectClone = Instantiate(deathEffect, transform.position, Quaternion.identity);
 		Destroy(gameObject);

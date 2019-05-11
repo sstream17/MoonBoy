@@ -2,18 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SwapWeapon : MonoBehaviour {
     public Image swapImage;
     public Animator animator;
 
+    public TextMeshProUGUI ammoDisplay;
+    public TextMeshProUGUI swapDisplay;
+
     private WeaponSpawn weaponSpawn;
     private bool playerOnCollectible = false;
 
 
+    public void UpdateUI() {
+        ammoDisplay.text = GameControl.control.playerAmmo.ToString("0");
+    }
+
+
     public void Swap() {
         animator.Play("Swap", 0, 0);
+        Weapon weaponToSwap = GameControl.control.playerWeapon;
+        int ammoToSwap = GameControl.control.playerAmmo;
         GameControl.control.playerWeapon = weaponSpawn.weapon;
+        GameControl.control.playerAmmo = weaponSpawn.ammo;
+        weaponSpawn.weapon = weaponToSwap;
+        weaponSpawn.ammo = ammoToSwap;
+        UpdateUI();
         PrefabWeapon.SetTimer();
     }
 
