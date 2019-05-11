@@ -49,6 +49,8 @@ TextureImporter:
     21300088: color_palette_2
     21300090: color_palette_3
     21300092: color_palette_4
+    21300094: color_palette_6
+    21300096: color_palette_7
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -1088,6 +1090,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5899a73c1e33c0a419d419a647cc45b7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: color_palette_6
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 40
+        width: 8
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecb1a6141fd6054458d1002b06cf9072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: color_palette_7
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 39
+        width: 8
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e0e15f3675cdd4fbe79e4a56955f10
       vertices: []
       indices: 
       edges: []
