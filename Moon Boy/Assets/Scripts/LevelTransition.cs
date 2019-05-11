@@ -22,7 +22,8 @@ public class LevelTransition : MonoBehaviour {
 
 
     void OnTriggerEnter2D (Collider2D hitInfo) {
-		if (hitInfo.tag == "Player") {
+        Player player = hitInfo.GetComponent<Player>();
+		if (player != null) {
 			FadeToNextLevel();
 		}
 	}
