@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6197431481181756941}
   - component: {fileID: 6197431481181756940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trigger
   m_TagString: Collectible
   m_Icon: {fileID: 0}
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 0}
+  ammo: 0
 --- !u!95 &4922753498501518348
 Animator:
   serializedVersion: 3
