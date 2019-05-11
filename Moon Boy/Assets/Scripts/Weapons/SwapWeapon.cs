@@ -16,7 +16,7 @@ public class SwapWeapon : MonoBehaviour {
 
 
     public void UpdateUI(WeaponSpawn weaponSpawn) {
-        ammoDisplay.text = GameControl.control.playerAmmo.ToString("0");
+        ammoDisplay.text = GameControl.control.playerAmmo.ToString("0") + " <size=\"75\">" + GameControl.control.playerWeapon.displayName;
         if (weaponSpawn != null) {
             SetNotificationText(weaponSpawn);
         }

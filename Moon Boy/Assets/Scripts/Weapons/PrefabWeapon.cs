@@ -40,7 +40,7 @@ public class PrefabWeapon : MonoBehaviour {
 		GameControl.control.playerAmmo = GameControl.control.playerAmmo - 1;
 		GameObject bulletClone = Instantiate(GameControl.control.playerWeapon.bulletPrefab, firePoint.position, firePoint.rotation, transform);
 		Destroy(bulletClone, 10);
-		ammoDisplay.text = GameControl.control.playerAmmo.ToString("0");
+		ammoDisplay.text = GameControl.control.playerAmmo.ToString("0") + " <size=\"75\">" + GameControl.control.playerWeapon.displayName;
 		timer.Start();
 	}
 
@@ -62,7 +62,7 @@ public class PrefabWeapon : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
 		SetTimer();
-		ammoDisplay.text = GameControl.control.playerAmmo.ToString("0");
+		ammoDisplay.text = GameControl.control.playerAmmo.ToString("0") + " <size=\"75\">" + GameControl.control.playerWeapon.displayName;
 		grenadeDisplay.text = grenades.ToString("0");
 	}
 
