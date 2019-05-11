@@ -1180,7 +1180,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1204,7 +1204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748636603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.6900005, y: 4.000002, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2024092561}
@@ -1631,6 +1631,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1639497595}
+    - target: {fileID: 7252715790353480236, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendShoot
+      objectReference: {fileID: 0}
     - target: {fileID: 7252715789557349397, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -1676,6 +1681,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 28755004}
+    - target: {fileID: 7252715791456816036, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AttemptSwap
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252715791027900794, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Toggle
+      objectReference: {fileID: 0}
     - target: {fileID: 7252715791027900794, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
