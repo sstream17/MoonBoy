@@ -32,7 +32,7 @@ public class GameControl : MonoBehaviour
 
 
     IEnumerator RespawnPlayer(Player playerToSpawn) {
-        gameObject.GetComponentInChildren<LevelTransition>().animator.SetTrigger("Respawn");
+        GameObject.FindGameObjectWithTag("LevelTransition").GetComponent<LevelTransition>().animator.SetTrigger("Respawn");
         yield return new WaitForSeconds(1f);
         playerToSpawn.gameObject.GetComponent<PlayerMovement>().energy = 100f;
         playerToSpawn.health = 100;
