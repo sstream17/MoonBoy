@@ -25,7 +25,7 @@ public class EnemyWeapon : MonoBehaviour {
 
 
 	public void SetTimer() {
-		shootTimer = new Timer(weapon.fireRate * 1000f);
+		shootTimer = new Timer(weapon.fireRate * 1.5f * 1000f);
 		shootTimer.Elapsed += HandleTimer;
 		shootTimer.AutoReset = false;
 	}
