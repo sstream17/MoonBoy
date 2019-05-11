@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249449219e780e14d9b72f4b2e126e4a, type: 3}
   m_Name: Level 2 Laser Pistol
   m_EditorClassIdentifier: 
-  ammo: 100
+  displayName: Lvl 2 Laser Pistol
   damage: 50
   speed: 20
   fireRate: 0.75
