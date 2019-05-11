@@ -51,6 +51,13 @@ public class EnemyWeapon : MonoBehaviour {
     }
 
 
+	IEnumerator StopMovingUpwards() {
+		yield return new WaitForSeconds(0.1f);
+		enemy.moveUpwards = false;
+		yield return false;
+	}
+
+
     void AttemptShot() {
         RaycastHit2D hitInfo = Physics2D.Linecast(firePoint.position, target.position, layerMask);
         if (hitInfo && (firePoint.position - target.position).magnitude <= startingDistance) {
@@ -59,7 +66,7 @@ public class EnemyWeapon : MonoBehaviour {
                 allowShoot = false;
                 Shoot();
                 shootTimer.Start();
-				enemy.moveUpwards = false;
+				StartCoroutine(StopMovingUpwards());
             }
 			else {
 				enemy.moveUpwards = true;
