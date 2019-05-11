@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6197431481181756941}
   - component: {fileID: 6197431481181756940}
-  m_Layer: 8
+  m_Layer: 18
   m_Name: Trigger
   m_TagString: Collectible
   m_Icon: {fileID: 0}
