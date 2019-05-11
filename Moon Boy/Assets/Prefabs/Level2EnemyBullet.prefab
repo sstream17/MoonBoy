@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1691850116117090784}
   - component: {fileID: 6147545136375212554}
   m_Layer: 11
-  m_Name: Level2Bullet 1
+  m_Name: Level2EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,5 +132,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1664237328129287498}
-  impactEffect: {fileID: 1473625048454486, guid: 284f05ab582ef494a9ab1dd8bc1e76ae,
+  impactEffect: {fileID: 7474996764949733460, guid: 8eeba3f53692d3847bd61378f0a88441,
     type: 3}

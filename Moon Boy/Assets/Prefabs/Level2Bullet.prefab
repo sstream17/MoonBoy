@@ -132,5 +132,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8029803265069772881}
-  impactEffect: {fileID: 1473625048454486, guid: 284f05ab582ef494a9ab1dd8bc1e76ae,
+  impactEffect: {fileID: 7474996764949733460, guid: 8eeba3f53692d3847bd61378f0a88441,
     type: 3}
