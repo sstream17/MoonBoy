@@ -44,7 +44,7 @@ public class SwapWeapon : MonoBehaviour {
 
 
     public void SetNotificationText(WeaponSpawn weaponSpawn) {
-        swapDisplay.text = "Swap " + GameControl.control.playerWeapon.displayName + " (" + GameControl.control.playerAmmo + ") with " + weaponSpawn.ToString();
+        swapDisplay.text = "Swap " + GameControl.control.playerWeapon.displayName + " (" + GameControl.control.playerAmmo + ") for a " + weaponSpawn.ToString();
     }
 
 
