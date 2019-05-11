@@ -22,14 +22,13 @@ public class EnemyBullet : MonoBehaviour
 	}
 
 	void OnTriggerEnter2D (Collider2D hitInfo) {
+        Destroy(gameObject);
 		Player player = hitInfo.GetComponent<Player>();
 		if (player != null) {
 			player.TakeDamage(weapon.damage);
 		}
 
 		GameObject impactEffectClone = Instantiate(impactEffect, transform.position, transform.rotation);
-
-		Destroy(gameObject);
 		Destroy(impactEffectClone, 5);
 	}
 }

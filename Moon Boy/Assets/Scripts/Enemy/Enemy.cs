@@ -23,12 +23,12 @@ public class Enemy : MonoBehaviour {
 
 	void Die () {
 		EnemyWeapon weapon = gameObject.GetComponentInChildren<EnemyWeapon>();
+		Destroy(gameObject);
 		if (weapon != null) {
 			GameObject weaponSpawn = Instantiate(weapon.weapon.spawnPrefab, transform.position, Quaternion.identity);
 			weaponSpawn.GetComponent<WeaponSpawn>().Initialize(weapon.weapon);
 		}
 		Object deathEffectClone = Instantiate(deathEffect, transform.position, Quaternion.identity);
-		Destroy(gameObject);
 		Destroy(deathEffectClone, 5);
 	}
 
