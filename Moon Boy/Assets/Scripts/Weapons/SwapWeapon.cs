@@ -15,8 +15,11 @@ public class SwapWeapon : MonoBehaviour {
     private bool playerOnCollectible = false;
 
 
-    public void UpdateUI() {
+    public void UpdateUI(WeaponSpawn weaponSpawn) {
         ammoDisplay.text = GameControl.control.playerAmmo.ToString("0");
+        if (weaponSpawn != null) {
+            SetNotificationText(weaponSpawn);
+        }
     }
 
 
@@ -28,7 +31,7 @@ public class SwapWeapon : MonoBehaviour {
         GameControl.control.playerAmmo = weaponSpawn.ammo;
         weaponSpawn.weapon = weaponToSwap;
         weaponSpawn.ammo = ammoToSwap;
-        UpdateUI();
+        UpdateUI(weaponSpawn);
         PrefabWeapon.SetTimer();
     }
 
@@ -40,7 +43,13 @@ public class SwapWeapon : MonoBehaviour {
     }
 
 
+    public void SetNotificationText(WeaponSpawn weaponSpawn) {
+        swapDisplay.text = "Swap " + GameControl.control.playerWeapon.displayName + " (" + GameControl.control.playerAmmo + ") with " + weaponSpawn.ToString();
+    }
+
+
     public void DisplayNotification(WeaponSpawn weaponSpawn) {
+        SetNotificationText(weaponSpawn);
         swapDisplay.enabled = true;
     }
 

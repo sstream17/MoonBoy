@@ -11,7 +11,11 @@ public class WeaponSpawn : MonoBehaviour
     public void Initialize(Weapon weaponToSpawn) {
         weapon = weaponToSpawn;
         int newAmmo = (int) Mathf.Floor(Random.Range(0f, 50f));
-        Debug.Log(newAmmo);
         ammo = newAmmo;
+    }
+
+
+    public override string ToString() {
+        return weapon.displayName + " (" + ammo + ")";
     }
 }
