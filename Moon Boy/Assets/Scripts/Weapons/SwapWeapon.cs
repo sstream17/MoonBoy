@@ -40,11 +40,22 @@ public class SwapWeapon : MonoBehaviour {
     }
 
 
+    public void DisplayNotification(WeaponSpawn weaponSpawn) {
+        swapDisplay.enabled = true;
+    }
+
+
+    public void HideNotification() {
+        swapDisplay.enabled = false;
+    }
+
+
     void OnTriggerEnter2D (Collider2D hitInfo) {
 		GameObject collider = hitInfo.gameObject;
 		if (collider.tag == "Collectible") {
 			playerOnCollectible = true;
 			weaponSpawn = collider.GetComponentInParent<WeaponSpawn>();
+            DisplayNotification(weaponSpawn);
 		}
 	}
 
@@ -54,6 +65,7 @@ public class SwapWeapon : MonoBehaviour {
 		if (collider.tag == "Collectible") {
 			playerOnCollectible = false;
 			weaponSpawn = null;
+            HideNotification();
 		}
 	}
 }
