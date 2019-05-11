@@ -56,10 +56,10 @@ public class EnemyWeapon : MonoBehaviour {
         if (hitInfo && (firePoint.position - target.position).magnitude <= startingDistance) {
             Player player = hitInfo.transform.GetComponent<Player>();
             if (player != null) {
-				enemy.moveUpwards = false;
                 allowShoot = false;
                 Shoot();
                 shootTimer.Start();
+				enemy.moveUpwards = false;
             }
 			else {
 				enemy.moveUpwards = true;
