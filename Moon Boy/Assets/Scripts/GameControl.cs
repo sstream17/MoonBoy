@@ -31,19 +31,22 @@ public class GameControl : MonoBehaviour
     }
 
 
-    void RespawnPlayer(Player playerToSpawn) {
+    IEnumerator RespawnPlayer(Player playerToSpawn) {
+        gameObject.GetComponentInChildren<LevelTransition>().animator.SetTrigger("Respawn");
+        yield return new WaitForSeconds(1f);
         playerToSpawn.gameObject.GetComponent<PlayerMovement>().energy = 100f;
         playerToSpawn.health = 100;
         playerToSpawn.UpdateUI();
         playerToSpawn.gameObject.transform.position = control.spawnPoint.position;
         playerToSpawn.gameObject.SetActive(true);
+        yield return false;
     }
 
 
     public void KillPlayer(Player playerToKill) {
         playerToKill.gameObject.SetActive(false);
 		GameObject deathEffectClone = Instantiate(playerToKill.deathEffect, playerToKill.transform.position, Quaternion.identity);
-        RespawnPlayer(playerToKill);
+        StartCoroutine(RespawnPlayer(playerToKill));
 		Destroy(deathEffectClone, 5);
 	}
 
