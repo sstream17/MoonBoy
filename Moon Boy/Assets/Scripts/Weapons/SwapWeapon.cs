@@ -12,13 +12,14 @@ public class SwapWeapon : MonoBehaviour {
     public TextMeshProUGUI swapDisplay;
 
     private WeaponSpawn weaponSpawn;
+    private RestockPoint restockPoint;
     private bool playerOnCollectible = false;
 
 
     public void UpdateUI(WeaponSpawn weaponSpawn) {
         ammoDisplay.text = GameControl.control.playerAmmo.ToString("0") + " <size=\"75\">" + GameControl.control.playerWeapon.displayName;
         if (weaponSpawn != null) {
-            SetNotificationText(weaponSpawn);
+            SetNotificationSwapText(weaponSpawn);
         }
     }
 
@@ -36,20 +37,42 @@ public class SwapWeapon : MonoBehaviour {
     }
 
 
+    public void Restock() {
+        animator.Play("Swap", 0, 0);
+        GameControl.control.playerAmmo = GameControl.control.playerAmmo + restockPoint.ammo;
+        UpdateUI(weaponSpawn);
+        Destroy(restockPoint.gameObject);
+    }
+
+
     public void AttemptSwap() {
         if (playerOnCollectible && weaponSpawn != null) {
             Swap();
         }
+        else if (playerOnCollectible && restockPoint != null) {
+            Restock();
+        }
     }
 
 
-    public void SetNotificationText(WeaponSpawn weaponSpawn) {
+    public void SetNotificationSwapText(WeaponSpawn weaponSpawn) {
         swapDisplay.text = "Swap " + GameControl.control.playerWeapon.displayName + " (" + GameControl.control.playerAmmo + ") for a " + weaponSpawn.ToString();
     }
 
 
-    public void DisplayNotification(WeaponSpawn weaponSpawn) {
-        SetNotificationText(weaponSpawn);
+    public void DisplaySwapNotification(WeaponSpawn weaponSpawn) {
+        SetNotificationSwapText(weaponSpawn);
+        swapDisplay.enabled = true;
+    }
+
+
+    public void SetNotificationRestockText() {
+        swapDisplay.text = "Restock 50 ammo";
+    }
+
+
+    public void DisplayRestockNotification() {
+        SetNotificationRestockText();
         swapDisplay.enabled = true;
     }
 
@@ -60,12 +83,16 @@ public class SwapWeapon : MonoBehaviour {
 
 
     void OnTriggerEnter2D (Collider2D hitInfo) {
-		GameObject collider = hitInfo.gameObject;
-		if (collider.tag == "Collectible") {
+		weaponSpawn = hitInfo.gameObject.GetComponentInParent<WeaponSpawn>();
+        restockPoint = hitInfo.gameObject.GetComponentInParent<RestockPoint>();
+		if (weaponSpawn != null) {
 			playerOnCollectible = true;
-			weaponSpawn = collider.GetComponentInParent<WeaponSpawn>();
-            DisplayNotification(weaponSpawn);
+            DisplaySwapNotification(weaponSpawn);
 		}
+        else if (restockPoint != null) {
+            playerOnCollectible = true;
+            DisplayRestockNotification();
+        }
 	}
 
 
@@ -74,6 +101,7 @@ public class SwapWeapon : MonoBehaviour {
 		if (collider.tag == "Collectible") {
 			playerOnCollectible = false;
 			weaponSpawn = null;
+            restockPoint = null;
             HideNotification();
 		}
 	}
