@@ -214,7 +214,7 @@ MonoBehaviour:
   health: 100
   blastRadius: 5
   explosionDelay: 1
-  explosionDamage: 20
+  explosionDamage: 10
   deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}
 --- !u!114 &2741040969451533274

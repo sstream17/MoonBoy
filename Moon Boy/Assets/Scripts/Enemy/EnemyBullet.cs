@@ -7,6 +7,7 @@ public class EnemyBullet : MonoBehaviour
     Weapon weapon;
 	public Rigidbody2D rb;
 	public GameObject impactEffect;
+    public float damageModifier = 0.25f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +26,7 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject);
 		Player player = hitInfo.GetComponent<Player>();
 		if (player != null) {
-			player.TakeDamage(weapon.damage);
+			player.TakeDamage((int) Mathf.Floor(weapon.damage * damageModifier));
 		}
 
 		GameObject impactEffectClone = Instantiate(impactEffect, transform.position, transform.rotation);
