@@ -18,6 +18,8 @@ public class GameControl : MonoBehaviour
 
     public Weapon[] enemyWeapons;
 
+    public Animator transitionAnimator;
+
 
     void Awake() {
         if (control == null) {
@@ -28,11 +30,13 @@ public class GameControl : MonoBehaviour
             Destroy(gameObject);
         }
         control.spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
+        control.transitionAnimator = GameObject.FindGameObjectWithTag("LevelTransition").GetComponent<Animator>();
     }
 
 
     IEnumerator RespawnPlayer(Player playerToSpawn) {
-        GameObject.FindGameObjectWithTag("LevelTransition").GetComponent<LevelTransition>().animator.SetTrigger("Respawn");
+        yield return new WaitForSeconds(0.5f);
+        control.transitionAnimator.SetTrigger("Respawn");
         yield return new WaitForSeconds(1f);
         playerToSpawn.gameObject.GetComponent<PlayerMovement>().energy = 100f;
         playerToSpawn.health = 100;
