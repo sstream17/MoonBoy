@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RockyGroundDistant
   m_EditorClassIdentifier: 
   m_Angles:
-  - m_Start: -60
-    m_End: 60
+  - m_Start: -85
+    m_End: 85
     m_Order: 0
     m_Sprites:
     - {fileID: 21300000, guid: 87bbd603d5cc4f1488e7a9fce3580c11, type: 3}
