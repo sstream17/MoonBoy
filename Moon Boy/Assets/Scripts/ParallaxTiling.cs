@@ -22,10 +22,6 @@ public class ParallaxTiling : MonoBehaviour
         gameCamera = Camera.main;
         thisTransform = transform;
     }
-    // Start is called before the first frame update
-    void Start() {
-        SpriteShapeRenderer spriteRenderer = GetComponent<SpriteShapeRenderer>();
-    }
 
 
     void MakeConnection(Direction direction) {
