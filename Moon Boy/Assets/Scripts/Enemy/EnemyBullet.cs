@@ -12,6 +12,7 @@ public class EnemyBullet : MonoBehaviour
 	// Use this for initialization
 	void Start () {
         weapon = GetComponentInParent<EnemyWeapon>().weapon;
+        transform.parent = null;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         bool isCrouching = player.gameObject.GetComponent<PlayerMovement>().crouch;
         float yOffset = isCrouching ? -0.6f : 0.4f;
