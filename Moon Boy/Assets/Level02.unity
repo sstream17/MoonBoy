@@ -1045,15 +1045,15 @@ SpriteShapeRenderer:
   m_SortingOrder: 0
   m_Color: {r: 0, g: 1, b: 0.499094, a: 1}
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 2800000, guid: e74533330dbd17744b640c99f470a03f, type: 3}
+  m_ShapeTexture: {fileID: 2800000, guid: 82717513f9c0a104697d4ca1d0537434, type: 3}
   m_Sprites:
-  - {fileID: 21300000, guid: d45eca17291e9bd4d8bfa01a194caef4, type: 3}
-  - {fileID: 21300000, guid: d45eca17291e9bd4d8bfa01a194caef4, type: 3}
-  - {fileID: 21300000, guid: d45eca17291e9bd4d8bfa01a194caef4, type: 3}
-  - {fileID: 21300000, guid: d45eca17291e9bd4d8bfa01a194caef4, type: 3}
+  - {fileID: 21300000, guid: 1710c6d6b39afb5449766959a5c602db, type: 3}
+  - {fileID: 21300000, guid: 1710c6d6b39afb5449766959a5c602db, type: 3}
+  - {fileID: 21300000, guid: 1710c6d6b39afb5449766959a5c602db, type: 3}
+  - {fileID: 21300000, guid: 1710c6d6b39afb5449766959a5c602db, type: 3}
   m_LocalAABB:
-    m_Center: {x: 147, y: -3.4984846, z: -0.002}
-    m_Extent: {x: 153.6875, y: 9.189015, z: 0.002}
+    m_Center: {x: 147, y: -3.5000165, z: -0.002}
+    m_Extent: {x: 153.6875, y: 9.187484, z: 0.002}
 --- !u!4 &1011768057
 Transform:
   m_ObjectHideFlags: 0
@@ -1646,36 +1646,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: swapImage
-      value: 
-      objectReference: {fileID: 77280818}
-    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 77280817}
-    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
+    - target: {fileID: 7824615418732647989, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
       propertyPath: ammoDisplay
       value: 
       objectReference: {fileID: 77280820}
-    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
+    - target: {fileID: 7824615418732647989, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
-      propertyPath: swapDisplay
+      propertyPath: grenadeDisplay
       value: 
-      objectReference: {fileID: 77280814}
-    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: grenadeImage
-      value: 
-      objectReference: {fileID: 77280816}
-    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
-        type: 3}
-      propertyPath: ammoImage
-      value: 
-      objectReference: {fileID: 77280815}
+      objectReference: {fileID: 77280819}
     - target: {fileID: 7824615418195406088, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1731,16 +1711,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7824615418732647989, guid: 417c2b71e3e2cff4db18acfcfd136724,
+    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: grenadeImage
+      value: 
+      objectReference: {fileID: 77280816}
+    - target: {fileID: 7824615418195406195, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: ammoImage
+      value: 
+      objectReference: {fileID: 77280815}
+    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: swapImage
+      value: 
+      objectReference: {fileID: 77280818}
+    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 77280817}
+    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
       propertyPath: ammoDisplay
       value: 
       objectReference: {fileID: 77280820}
-    - target: {fileID: 7824615418732647989, guid: 417c2b71e3e2cff4db18acfcfd136724,
+    - target: {fileID: 7824615418195406194, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
-      propertyPath: grenadeDisplay
+      propertyPath: swapDisplay
       value: 
-      objectReference: {fileID: 77280819}
+      objectReference: {fileID: 77280814}
     - target: {fileID: 7824615418195406193, guid: 417c2b71e3e2cff4db18acfcfd136724,
         type: 3}
       propertyPath: joystick
