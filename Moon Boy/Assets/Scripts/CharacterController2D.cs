@@ -103,8 +103,8 @@ public class CharacterController2D : MonoBehaviour {
 			// Move the character by finding the target velocity
 			Vector3 targetVelocity = new Vector2(horizontalMove * 10f, m_Rigidbody2D.velocity.y);
 			// If the character is in the air, maintain current trajectory
-			if (!m_Grounded && verticalMove <= 0 && canFly) {
-				targetVelocity = new Vector2(m_Rigidbody2D.velocity.x, m_Rigidbody2D.velocity.y);
+			if (!m_Grounded && verticalMove <= 0) {
+				targetVelocity = new Vector2(m_Rigidbody2D.velocity.x, m_Rigidbody2D.velocity.y + verticalMove);
 			}
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);

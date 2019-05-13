@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		else if (verticalMove <= -0.2f) {
 			horizontalMove = 0;
-			verticalVelocity = 0;
+			verticalVelocity = -50f;
 			crouch = true;
 			energyModifier = canFly ? 0.02f : 0f;
 			firePoint.localPosition = new Vector2(1.07f, -0.66f);
