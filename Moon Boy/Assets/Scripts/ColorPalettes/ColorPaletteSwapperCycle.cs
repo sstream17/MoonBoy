@@ -7,15 +7,14 @@ namespace ActionCode.ColorPalettes {
         public ColorPaletteSwapper swapper;
         public ColorPalette[] palettes;
 
-        static public int current_palette_index = 0;
-
+        
         private void Reset() {
             swapper = GetComponent<ColorPaletteSwapper>();
         }
 
         private void Start()
         {
-            swapper.SwitchPalette(palettes[current_palette_index]);
+            swapper.SwitchPalette(palettes[GameControl.control.current_palette_index]);
         }
 
         public void SwapPalette(int palette_index) {
@@ -24,7 +23,7 @@ namespace ActionCode.ColorPalettes {
             }
 
             swapper.SwitchPalette(palettes[palette_index]);
-            current_palette_index = palette_index;
+            GameControl.control.current_palette_index = palette_index;
         }
     }
 }

@@ -19,7 +19,9 @@ public class PlayerMovement : MonoBehaviour {
 	float horizontalMove = 0f;
 	float verticalMove = 0f;
 	float verticalVelocity = 0f;
-	bool crouch = false;
+
+	[HideInInspector]
+	public bool crouch = false;
 	bool canFly = true;
 
 	// Update is called once per frame

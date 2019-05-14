@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -640, y: -360}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7547989025094013317
 CanvasRenderer:
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4443358367605408202}
   m_Layer: 5
   m_Name: LevelTransition
-  m_TagString: Untagged
+  m_TagString: LevelTransition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

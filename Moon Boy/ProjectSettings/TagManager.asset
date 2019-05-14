@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Through
+  - Collectible
+  - SpawnPoint
+  - Camera
+  - HUD
+  - Joystick
+  - SwapButton
+  - ToggleButton
+  - ShootArea
+  - LevelTransition
   layers:
   - Default
   - TransparentFX
@@ -21,10 +30,10 @@ TagManager:
   - Grenade
   - Enemy
   - LevelFinish
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Collectible
+  - EnemyDetonator
+  - CollectibleRadius
   - 
   - 
   - 

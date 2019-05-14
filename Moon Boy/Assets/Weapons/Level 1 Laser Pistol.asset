@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249449219e780e14d9b72f4b2e126e4a, type: 3}
+  m_Name: Level 1 Laser Pistol
+  m_EditorClassIdentifier: 
+  displayName: Lvl 1 Laser Pistol
+  damage: 100
+  speed: 20
+  fireRate: 2
+  canRapidFire: 0
+  bulletPrefab: {fileID: 1539632861300792, guid: 96ae8f9dd8fd89941bc4d858375f035b,
+    type: 3}
+  enemyBulletPrefab: {fileID: 750704347464454781, guid: e3d73bc0e6df35642a8cf073fd8eaba6,
+    type: 3}
+  spawnPrefab: {fileID: 6197431481772946374, guid: 38d2893bd363a174f962740b165c6954,
+    type: 3}

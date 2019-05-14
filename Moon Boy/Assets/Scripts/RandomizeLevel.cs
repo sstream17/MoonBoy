@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using Pathfinding;
 
 public class RandomizeLevel : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class RandomizeLevel : MonoBehaviour
     public SpriteShapeController spriteShape;
 
     public GameObject[] enemies;
+    public Weapon[] enemyWeapons;
     public int numberOfEnemies = 3;
     public float deltaX = 3f;
     public float deltaY = 3f;
 
     // Start is called before the first frame update
     void Start() {
+        GameControl.control.enemyWeapons = enemyWeapons;
         Spline spline = spriteShape.spline;
         float xMinimum = spline.GetPosition(0).x + 20f;
         float xMaximum = spline.GetPosition(1).x;
@@ -31,13 +34,15 @@ public class RandomizeLevel : MonoBehaviour
           splineIndex = splineIndex + 1;
         }
         spriteShape.BakeCollider();
+        AstarPath.active.Scan();
         spline = spriteShape.spline;
         int numberOfPoints = spline.GetPointCount() - 15;
         for (int i = 0; i < numberOfEnemies; i++) {
             Vector3 randomPosition = spline.GetPosition((int) Mathf.Floor(Random.value * numberOfPoints) + 4);
             randomPosition.y = randomPosition.y + 8f;
             randomPosition.z = 0;
-            Instantiate(enemies[0], randomPosition, Quaternion.identity);
+            int randomEnemy = (int) Mathf.Floor(Random.value * enemies.Length);
+            Instantiate(enemies[randomEnemy], randomPosition, Quaternion.identity);
         }
     }
 }
