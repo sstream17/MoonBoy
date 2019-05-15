@@ -12,6 +12,8 @@ public class EnemyShooterAI : MonoBehaviour
     public float maximumDistance;
     private bool returning = false;
     public Transform target;
+    public Transform player;
+    public Transform retreatPoint;
     public float startingDistance;
     public float stoppingDistance;
     public float retreatDistance;
@@ -53,31 +55,6 @@ public class EnemyShooterAI : MonoBehaviour
     }
 
 
-    IEnumerator UpdatePath() {
-        if (target == null) {
-            if (!searchingForPlayer) {
-                searchingForPlayer = true;
-                StartCoroutine(SearchForPlayer());
-            }
-            yield return false;
-        }
-
-        seeker.StartPath(transform.position, target.position, OnPathComplete);
-
-        yield return new WaitForSeconds(1f / updateRate);
-        StartCoroutine(UpdatePath());
-    }
-
-
-    IEnumerator Return(Vector2 direction) {
-        while (distanceFromStart <= -1f) {
-            rb.AddForce(direction, forceMode);
-            yield return new WaitForSeconds(1f / updateRate);
-        }
-        returning = false;
-        yield return false;
-    }
-
     IEnumerator SearchForPlayer() {
         GameObject searchResult = GameObject.FindGameObjectWithTag("Player");
         if (searchResult == null) {
@@ -86,10 +63,28 @@ public class EnemyShooterAI : MonoBehaviour
         }
         else {
             searchingForPlayer = false;
-            target = searchResult.transform;
+            player = searchResult.transform;
+            target = player;
             StartCoroutine(UpdatePath());
             yield return false;
         }
+    }
+
+
+    IEnumerator UpdatePath() {
+        if (target == null) {
+            if (!searchingForPlayer) {
+                searchingForPlayer = true;
+                StartCoroutine(SearchForPlayer());
+            }
+            yield return false;
+        }
+        if (seeker.IsDone()) {
+            seeker.StartPath(transform.position, target.position, OnPathComplete);
+        }
+
+        yield return new WaitForSeconds(1f / updateRate);
+        StartCoroutine(UpdatePath());
     }
 
 
@@ -106,6 +101,7 @@ public class EnemyShooterAI : MonoBehaviour
 
 
     void Start() {
+        retreatPoint = GameObject.FindGameObjectWithTag("RetreatPoint").transform;
         originalLocation = new GameObject("OriginalLocation");
         originalLocation.transform.position = transform.position;
         seeker = GetComponent<Seeker>();
@@ -126,16 +122,6 @@ public class EnemyShooterAI : MonoBehaviour
 
 
     void FixedUpdate() {
-        distanceFromStart = transform.position.x - originalLocation.transform.position.x;
-        if (distanceFromStart < -maximumDistance) {
-            Vector2 returnDirection = (originalLocation.transform.position - transform.position).normalized;
-            returnDirection = returnDirection * speed * 0.5f * Time.fixedDeltaTime;
-            movingBackward = true;
-            returning = true;
-            StartCoroutine(Return(returnDirection));
-            return;
-        }
-
         if (target == null) {
             if (!searchingForPlayer) {
                 searchingForPlayer = true;
@@ -164,8 +150,6 @@ public class EnemyShooterAI : MonoBehaviour
 			}
 		}
 
-        float distanceToPlayer = Vector2.Distance(transform.position, target.position);
-
         if (currentWaypoint >= path.vectorPath.Count) {
             if (pathHasEnded) {
                 return;
@@ -175,8 +159,17 @@ public class EnemyShooterAI : MonoBehaviour
         }
         pathHasEnded = false;
 
+        float distanceToPlayer = Mathf.Abs(transform.position.x - player.position.x);
+        bool playerInFront = player.position.x < transform.position.x;
+
         Vector2 direction = (path.vectorPath[currentWaypoint] - transform.position).normalized;
         direction = direction * speed * Time.fixedDeltaTime;
+
+        distanceFromStart = transform.position.x - originalLocation.transform.position.x;
+        if (distanceFromStart < -maximumDistance) {
+            returning = true;
+            target = retreatPoint;
+        }
 
         if (!returning) {
             if (distanceToPlayer < startingDistance && moveUpwards) {
@@ -194,9 +187,22 @@ public class EnemyShooterAI : MonoBehaviour
                 transform.position = this.transform.position;
             }
             else if (distanceToPlayer < retreatDistance) {
+                returning = true;
+                target = retreatPoint;
                 movingBackward = -direction.x > 10f ? true : false;
-                rb.AddForce(-direction, forceMode);
             }
+        }
+        else {
+            if (distanceToPlayer < startingDistance && moveUpwards) {
+                rb.AddForce(Vector2.up * speed * Time.fixedDeltaTime, forceMode);
+                return;
+            }
+
+            if (distanceToPlayer > startingDistance && playerInFront) {
+                returning = false;
+                target = null;
+            }
+            rb.AddForce(direction, forceMode);
         }
 
         SetAnimator(m_Grounded, movingForward, movingBackward);
