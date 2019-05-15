@@ -15,9 +15,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a2ae33c57e52601459f85e3d9b69cc37
   - enabled: 1
-    path: Assets/Scenes/Moon 1/Level01.unity
+    path: Assets/Scenes/Moon1/Level01.unity
     guid: 2a42d2a4355c7d64ba1b390e196aa998
   - enabled: 1
-    path: Assets/Scenes/Moon 2/Level04.unity
+    path: Assets/Scenes/Moon1/Level02.unity
+    guid: ba07a56087f3eee4c9d5f80195888cc2
+  - enabled: 1
+    path: Assets/Scenes/Moon1/Level03.unity
+    guid: 4bfb77a41ca676447bcad1e8aaf91972
+  - enabled: 1
+    path: Assets/Scenes/Moon2/Level04.unity
     guid: 40e9cc4fe5aff0542bf3459f6e13bc14
+  - enabled: 1
+    path: Assets/Scenes/Moon2/Level05.unity
+    guid: 1adffce277a8206408345c30f484c431
+  - enabled: 1
+    path: Assets/Scenes/Moon2/Level06.unity
+    guid: 036a29989efba154ab8f907b75260b2f
   m_configObjects: {}
