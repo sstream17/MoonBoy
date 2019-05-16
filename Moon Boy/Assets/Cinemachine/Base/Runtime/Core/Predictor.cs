@@ -10,10 +10,10 @@ namespace Cinemachine.Utility
 
         const float kSmoothingDefault = 10;
         float mSmoothing = kSmoothingDefault;
-        public float Smoothing 
+        public float Smoothing
         {
             get { return mSmoothing; }
-            set 
+            set
             {
                 if (value != mSmoothing)
                 {
@@ -40,7 +40,7 @@ namespace Cinemachine.Utility
         {
             if (IsEmpty)
                 m_Velocity.AddValue(Vector3.zero);
-            else
+            else if (Time.deltaTime > Vector3.kEpsilon)
             {
                 Vector3 vel = m_Velocity.Value();
                 Vector3 vel2 = (pos - m_Position) / Time.deltaTime;
@@ -52,17 +52,20 @@ namespace Cinemachine.Utility
 
         public Vector3 PredictPosition(float lookaheadTime)
         {
-            int numSteps = Mathf.Min(Mathf.RoundToInt(lookaheadTime / Time.deltaTime), 6);
-            float dt = lookaheadTime / numSteps;
             Vector3 pos = m_Position;
-            Vector3 vel = m_Velocity.IsEmpty() ? Vector3.zero : m_Velocity.Value();
-            Vector3 accel = m_Accel.IsEmpty() ? Vector3.zero : m_Accel.Value();
-            for (int i = 0; i < numSteps; ++i)
+            if (Time.deltaTime > Vector3.kEpsilon)
             {
-                pos += vel * dt;
-                Vector3 vel2 = vel + (accel * dt);
-                accel = Quaternion.FromToRotation(vel, vel2) * accel;
-                vel = vel2;
+                int numSteps = Mathf.Min(Mathf.RoundToInt(lookaheadTime / Time.deltaTime), 6);
+                float dt = lookaheadTime / numSteps;
+                Vector3 vel = m_Velocity.IsEmpty() ? Vector3.zero : m_Velocity.Value();
+                Vector3 accel = m_Accel.IsEmpty() ? Vector3.zero : m_Accel.Value();
+                for (int i = 0; i < numSteps; ++i)
+                {
+                    pos += vel * dt;
+                    Vector3 vel2 = vel + (accel * dt);
+                    accel = Quaternion.FromToRotation(vel, vel2) * accel;
+                    vel = vel2;
+                }
             }
             return pos;
         }
@@ -93,10 +96,10 @@ namespace Cinemachine.Utility
         /// <summary>Get a damped version of a quantity.  This is the portion of the
         /// quantity that will take effect over the given time.</summary>
         /// <param name="initial">The amount that will be damped</param>
-        /// <param name="dampTime">The rate of damping.  This is the time it would 
+        /// <param name="dampTime">The rate of damping.  This is the time it would
         /// take to reduce the original amount to a negligible percentage</param>
         /// <param name="deltaTime">The time over which to damp</param>
-        /// <returns>The damped amount.  This will be the original amount scaled by 
+        /// <returns>The damped amount.  This will be the original amount scaled by
         /// a value between 0 and 1.</returns>
         public static float Damp(float initial, float dampTime, float deltaTime)
         {
@@ -111,10 +114,10 @@ namespace Cinemachine.Utility
         /// <summary>Get a damped version of a quantity.  This is the portion of the
         /// quantity that will take effect over the given time.</summary>
         /// <param name="initial">The amount that will be damped</param>
-        /// <param name="dampTime">The rate of damping.  This is the time it would 
+        /// <param name="dampTime">The rate of damping.  This is the time it would
         /// take to reduce the original amount to a negligible percentage</param>
         /// <param name="deltaTime">The time over which to damp</param>
-        /// <returns>The damped amount.  This will be the original amount scaled by 
+        /// <returns>The damped amount.  This will be the original amount scaled by
         /// a value between 0 and 1.</returns>
         public static Vector3 Damp(Vector3 initial, Vector3 dampTime, float deltaTime)
         {
@@ -126,10 +129,10 @@ namespace Cinemachine.Utility
         /// <summary>Get a damped version of a quantity.  This is the portion of the
         /// quantity that will take effect over the given time.</summary>
         /// <param name="initial">The amount that will be damped</param>
-        /// <param name="dampTime">The rate of damping.  This is the time it would 
+        /// <param name="dampTime">The rate of damping.  This is the time it would
         /// take to reduce the original amount to a negligible percentage</param>
         /// <param name="deltaTime">The time over which to damp</param>
-        /// <returns>The damped amount.  This will be the original amount scaled by 
+        /// <returns>The damped amount.  This will be the original amount scaled by
         /// a value between 0 and 1.</returns>
         public static Vector3 Damp(Vector3 initial, float dampTime, float deltaTime)
         {
