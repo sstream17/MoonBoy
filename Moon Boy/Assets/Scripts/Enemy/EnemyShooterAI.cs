@@ -11,6 +11,7 @@ public class EnemyShooterAI : MonoBehaviour
     private float distanceFromStart;
     public float maximumDistance;
     private bool returning = false;
+    private bool avoidingGround = false;
     public Transform target;
     public Transform player;
     public Transform retreatPoint;
@@ -85,6 +86,18 @@ public class EnemyShooterAI : MonoBehaviour
 
         yield return new WaitForSeconds(1f / updateRate);
         StartCoroutine(UpdatePath());
+    }
+
+
+    IEnumerator AvoidGround() {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, 4f, m_WhatIsGround);
+		foreach (Collider2D collider in colliders) {
+			if (collider.gameObject != gameObject) {
+				rb.AddForce(Vector2.up * speed * Time.fixedDeltaTime, forceMode);
+			}
+		}
+        yield return new WaitForSeconds(1f / updateRate);
+        StartCoroutine(AvoidGround());
     }
 
 
@@ -193,16 +206,21 @@ public class EnemyShooterAI : MonoBehaviour
             }
         }
         else {
+            if (!avoidingGround) {
+                avoidingGround = true;
+                StartCoroutine(AvoidGround());
+            }
             if (distanceToPlayer < startingDistance && moveUpwards) {
                 rb.AddForce(Vector2.up * speed * Time.fixedDeltaTime, forceMode);
                 return;
             }
 
             if (distanceToPlayer > startingDistance && playerInFront) {
+                avoidingGround = false;
                 returning = false;
                 target = null;
             }
-            rb.AddForce(direction, forceMode);
+            rb.AddForce(direction * 1.4f, forceMode);
         }
 
         SetAnimator(m_Grounded, movingForward, movingBackward);
