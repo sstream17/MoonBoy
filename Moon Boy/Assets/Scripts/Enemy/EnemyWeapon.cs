@@ -97,7 +97,7 @@ public class EnemyWeapon : MonoBehaviour {
 	}
 
 
-	void Update() {
+	void FixedUpdate() {
 		if (target == null) {
             if (!searchingForPlayer) {
                 searchingForPlayer = true;
