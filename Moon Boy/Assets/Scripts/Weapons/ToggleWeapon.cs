@@ -12,12 +12,12 @@ public class ToggleWeapon : MonoBehaviour {
         if (grenadeImage.enabled) {
             grenadeImage.enabled = false;
             ammoImage.enabled = true;
-            weapon.isGrenade = true;
+            weapon.isGrenade = false;
         }
         else {
             ammoImage.enabled = false;
             grenadeImage.enabled = true;
-            weapon.isGrenade = false;
+            weapon.isGrenade = true;
         }
     }
 }
