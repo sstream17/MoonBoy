@@ -14,6 +14,7 @@ TagManager:
   - ToggleButton
   - ShootArea
   - LevelTransition
+  - RetreatPoint
   layers:
   - Default
   - TransparentFX
