@@ -267,9 +267,11 @@ MonoBehaviour:
   originalLocation: {fileID: 0}
   maximumDistance: 40
   target: {fileID: 0}
+  player: {fileID: 0}
+  retreatPoint: {fileID: 0}
   startingDistance: 25
-  stoppingDistance: 15
-  retreatDistance: 10
+  stoppingDistance: 16
+  retreatDistance: 13
   updateRate: 2
   animator: {fileID: 8285865611753646069}
   m_WhatIsGround:

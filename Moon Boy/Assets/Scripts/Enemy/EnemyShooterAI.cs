@@ -206,6 +206,7 @@ public class EnemyShooterAI : MonoBehaviour
             }
         }
         else {
+            movingBackward = true;
             if (!avoidingGround) {
                 avoidingGround = true;
                 StartCoroutine(AvoidGround());
@@ -215,7 +216,7 @@ public class EnemyShooterAI : MonoBehaviour
                 return;
             }
 
-            if (distanceToPlayer > startingDistance && playerInFront) {
+            if (distanceToPlayer > stoppingDistance && playerInFront) {
                 avoidingGround = false;
                 returning = false;
                 target = null;
