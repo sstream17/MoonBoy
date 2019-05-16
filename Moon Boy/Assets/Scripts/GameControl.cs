@@ -43,7 +43,7 @@ public class GameControl : MonoBehaviour
         playerToSpawn.UpdateUI();
         playerToSpawn.gameObject.transform.position = control.spawnPoint.position;
         playerToSpawn.gameObject.SetActive(true);
-        yield return false;
+        yield break;
     }
 
 

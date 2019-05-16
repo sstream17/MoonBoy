@@ -46,7 +46,7 @@ public class EnemyWeapon : MonoBehaviour {
         else {
             searchingForPlayer = false;
             target = searchResult.transform;
-            yield return false;
+            yield break;
         }
     }
 
@@ -56,7 +56,7 @@ public class EnemyWeapon : MonoBehaviour {
 		enemy.moveUpwards = false;
 		Shoot();
 		shootTimer.Start();
-		yield return false;
+		yield break;
 	}
 
 

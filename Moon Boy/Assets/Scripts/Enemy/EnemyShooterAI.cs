@@ -67,7 +67,7 @@ public class EnemyShooterAI : MonoBehaviour
             player = searchResult.transform;
             target = player;
             StartCoroutine(UpdatePath());
-            yield return false;
+            yield break;
         }
     }
 
@@ -78,7 +78,7 @@ public class EnemyShooterAI : MonoBehaviour
                 searchingForPlayer = true;
                 StartCoroutine(SearchForPlayer());
             }
-            yield return false;
+            yield break;
         }
         if (seeker.IsDone()) {
             seeker.StartPath(transform.position, target.position, OnPathComplete);

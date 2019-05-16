@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour {
 			}
 		}
 		Die();
-		yield return false;
+		yield break;
 	}
 
 
