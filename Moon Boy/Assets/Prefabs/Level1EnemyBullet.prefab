@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 774095651014107593}
   - component: {fileID: 2074010634829371072}
   m_Layer: 11
-  m_Name: Level1Bullet 1
+  m_Name: Level1EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: f4e17262a295e454a82ad31f72df4882, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,3 +134,4 @@ MonoBehaviour:
   rb: {fileID: 782505225781335395}
   impactEffect: {fileID: 1473625048454486, guid: 284f05ab582ef494a9ab1dd8bc1e76ae,
     type: 3}
+  damageModifier: 0.25
