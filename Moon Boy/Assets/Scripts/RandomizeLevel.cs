@@ -25,17 +25,17 @@ public class RandomizeLevel : MonoBehaviour
         float yMaximum = 30f;
         int splineIndex = 1;
         for (float currentX = xMinimum; currentX < xMaximum; currentX = currentX + 1 + (Random.value * deltaX)) {
-          float lastY = spline.GetPosition(splineIndex - 1).y;
-          float newY = lastY + Random.Range(-deltaY, deltaY);
-          if (Mathf.Abs(lastY - yMinimum) < 8) {
-            newY = lastY + deltaY;
-          }
-          if (Mathf.Abs(lastY - yMaximum) < 8) {
-            newY = lastY - deltaY;
-          }
-          spline.InsertPointAt(splineIndex, new Vector3(currentX, newY, 0f));
-          spline.SetTangentMode(splineIndex, (ShapeTangentMode) Mathf.Floor(Random.Range(0f, 3f)));
-          splineIndex = splineIndex + 1;
+            float lastY = spline.GetPosition(splineIndex - 1).y;
+            float newY = lastY + Random.Range(-deltaY, deltaY);
+            if (Mathf.Abs(lastY - yMinimum) < 8) {
+                newY = lastY + deltaY;
+            }
+            if (Mathf.Abs(lastY - yMaximum) < 8) {
+                newY = lastY - deltaY;
+            }
+            spline.InsertPointAt(splineIndex, new Vector3(currentX, newY, 0f));
+            spline.SetTangentMode(splineIndex, (ShapeTangentMode) Mathf.Floor(Random.Range(0f, 3f)));
+            splineIndex = splineIndex + 1;
         }
         spriteShape.BakeCollider();
         AstarPath.active.Scan();
