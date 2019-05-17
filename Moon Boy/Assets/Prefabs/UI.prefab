@@ -2839,10 +2839,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4443358367605408202, guid: 2a98770ca4c879447bb228eb50c2cd18,
-          type: 3}
-        m_MethodName: FadeToLevel
-        m_Mode: 3
+      - m_Target: {fileID: 3230525951617489504}
+        m_MethodName: Exit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -20,4 +20,9 @@ public class PauseGame : MonoBehaviour
         controlsUI.SetActive(true);
         Time.timeScale = 1f;
     }
+
+
+    public void Exit() {
+        GameControl.control.levelTransition.FadeToLevel(0);
+    }
 }

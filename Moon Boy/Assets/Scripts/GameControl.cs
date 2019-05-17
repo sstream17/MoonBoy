@@ -18,6 +18,8 @@ public class GameControl : MonoBehaviour
 
     public Weapon[] enemyWeapons;
 
+    public LevelTransition levelTransition;
+
     public Animator transitionAnimator;
 
 
@@ -30,6 +32,7 @@ public class GameControl : MonoBehaviour
             Destroy(gameObject);
         }
         control.spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
+        control.levelTransition = GameObject.FindGameObjectWithTag("LevelTransition").GetComponent<LevelTransition>();
         control.transitionAnimator = GameObject.FindGameObjectWithTag("LevelTransition").GetComponent<Animator>();
     }
 

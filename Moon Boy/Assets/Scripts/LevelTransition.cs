@@ -17,6 +17,7 @@ public class LevelTransition : MonoBehaviour {
 
 
 	public void OnFadeComplete () {
+        Time.timeScale = 1f;
 		SceneManager.LoadScene(GameControl.control.levelToLoad);
 	}
 
