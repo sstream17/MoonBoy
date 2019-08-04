@@ -86,7 +86,7 @@ public class EnemyWeapon : MonoBehaviour {
         enemy = GetComponentInParent<EnemyShooterAI>();
 		startingDistance = enemy.startingDistance;
         SetTimer();
-        layerMask = LayerMask.GetMask("Player", "Ground", "Enemy");
+        layerMask = LayerMask.GetMask("Player", "Ground", "Enemy", "Turret");
         if (target == null) {
             if (!searchingForPlayer) {
                 searchingForPlayer = true;
