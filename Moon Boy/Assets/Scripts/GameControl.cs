@@ -14,6 +14,8 @@ public class GameControl : MonoBehaviour
 
     public int playerAmmo;
 
+    public int playerLives = 3;
+
     public Transform spawnPoint;
 
     public Weapon[] enemyWeapons;
@@ -51,9 +53,18 @@ public class GameControl : MonoBehaviour
 
 
     public void KillPlayer(Player playerToKill) {
+        playerLives = playerLives - 1;
         playerToKill.gameObject.SetActive(false);
 		GameObject deathEffectClone = Instantiate(playerToKill.deathEffect, playerToKill.transform.position, Quaternion.identity);
-        StartCoroutine(RespawnPlayer(playerToKill));
+        if (playerLives <= 0)
+        {
+            Debug.Log("Game Over");
+        }
+        else
+        {
+            StartCoroutine(RespawnPlayer(playerToKill));
+        }
+
 		Destroy(deathEffectClone, 5);
 	}
 

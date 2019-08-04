@@ -40,7 +40,7 @@ public class PrefabWeapon : MonoBehaviour {
 		GameControl.control.playerAmmo = GameControl.control.playerAmmo - 1;
 		GameObject bulletClone = Instantiate(GameControl.control.playerWeapon.bulletPrefab, firePoint.position, firePoint.rotation);
 		Destroy(bulletClone, 10);
-		ammoDisplay.text = GameControl.control.playerAmmo.ToString("0") + " <size=\"75\">" + GameControl.control.playerWeapon.displayName;
+		ammoDisplay.text = GameControl.control.playerAmmo.ToString("0") + " <size=\"70\">" + GameControl.control.playerWeapon.displayName;
 		timer.Start();
 	}
 

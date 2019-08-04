@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 
 
     public void UpdateUI() {
-        healthDisplay.text = health.ToString("0");
+        healthDisplay.text = health.ToString("0") + " <size=\"70\">" + GameControl.control.playerLives;
     }
 
 	public void TakeDamage (int damage) {
