@@ -19,14 +19,14 @@ public class Menu : MonoBehaviour
 
 
     void Awake() {
-        GameControl.control.playerAmmo = 50;
-        GameControl.control.playerLives = 3;
         currentMenu = mainMenu;
         SwitchMenu(MenuScreen.Main);
     }
 
     void Start() {
         current_color_palette = GameControl.control.current_palette_index;
+        GameControl.control.playerAmmo = 50;
+        GameControl.control.playerLives = 3;
     }
 
 
