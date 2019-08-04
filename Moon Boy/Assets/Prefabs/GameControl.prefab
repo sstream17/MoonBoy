@@ -78,8 +78,11 @@ MonoBehaviour:
   current_palette_index: 0
   playerWeapon: {fileID: 11400000, guid: a045a03b5cd3ee64885fe3fad322d8bf, type: 2}
   playerAmmo: 50
+  playerLives: 3
   spawnPoint: {fileID: 6204659009001044011}
   enemyWeapons:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  levelTransition: {fileID: 0}
+  transitionAnimator: {fileID: 0}
