@@ -15,6 +15,8 @@ public class RandomizeLevel : MonoBehaviour
     public float deltaX = 3f;
     public float deltaY = 3f;
 
+    private bool restockPointPlaced = false;
+
     void Awake()
     {
         GameControl.control.enemyWeapons = enemyWeapons;
@@ -50,6 +52,15 @@ public class RandomizeLevel : MonoBehaviour
             randomPosition.y = randomPosition.y + 8f;
             randomPosition.z = 0;
             int randomEnemy = (int) Mathf.Floor(Random.value * enemies.Length);
+            if (enemies[randomEnemy].name.Equals("RestockPoint") && !restockPointPlaced)
+            {
+                restockPointPlaced = true;
+            }
+            else if (enemies[randomEnemy].name.Equals("RestockPoint") && restockPointPlaced)
+            {
+                i = i - 1;
+                continue;
+            }
             Instantiate(enemies[randomEnemy], randomPosition, Quaternion.identity);
         }
     }
