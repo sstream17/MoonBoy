@@ -51,6 +51,13 @@ public class GameControl : MonoBehaviour
         yield break;
     }
 
+    private void GameOver()
+    {
+        GameObject UI = GameObject.Find("UI");
+        GameOver gameOver = UI.GetComponent<GameOver>();
+        gameOver.DisplayGameOver();
+    }
+
 
     public void KillPlayer(Player playerToKill) {
         playerLives = playerLives - 1;
@@ -58,7 +65,7 @@ public class GameControl : MonoBehaviour
 		GameObject deathEffectClone = Instantiate(playerToKill.deathEffect, playerToKill.transform.position, Quaternion.identity);
         if (playerLives <= 0)
         {
-            Debug.Log("Game Over");
+            GameOver();
         }
         else
         {
