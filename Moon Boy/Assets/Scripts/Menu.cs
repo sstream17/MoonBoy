@@ -19,6 +19,8 @@ public class Menu : MonoBehaviour
 
 
     void Awake() {
+        GameControl.control.playerAmmo = 50;
+        GameControl.control.playerLives = 3;
         currentMenu = mainMenu;
         SwitchMenu(MenuScreen.Main);
     }
