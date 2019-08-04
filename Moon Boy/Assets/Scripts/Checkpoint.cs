@@ -13,6 +13,11 @@ public class Checkpoint : MonoBehaviour
         searching = false;
     }
 
+    void Start()
+    {
+        GameControl.control.spawnPoint.position = transform.position;
+    }
+
     IEnumerator FindNewSpawnPoint(Vector2 potentialSpawnPosition)
     {
         bool enemyFound = false;
