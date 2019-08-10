@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 513
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: -50
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -1433,7 +1433,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 258
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: -20
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -2408,7 +2408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 550, y: -150}
+  m_AnchoredPosition: {x: 500, y: -150}
   m_SizeDelta: {x: 200, y: 125}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7252715791274236242
@@ -2863,7 +2863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 550, y: -25}
+  m_AnchoredPosition: {x: 500, y: -25}
   m_SizeDelta: {x: 1200, y: 125}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7252715791577400700
@@ -2931,7 +2931,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 513
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: -50
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
