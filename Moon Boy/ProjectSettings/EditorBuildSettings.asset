@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a2ae33c57e52601459f85e3d9b69cc37
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 32a76917e94d30d4e8aa63141091c443
+  - enabled: 1
     path: Assets/Scenes/Moon1/Level01.unity
     guid: 2a42d2a4355c7d64ba1b390e196aa998
   - enabled: 1
