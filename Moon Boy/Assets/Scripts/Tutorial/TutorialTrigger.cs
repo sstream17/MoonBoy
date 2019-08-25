@@ -16,7 +16,20 @@ public class TutorialTrigger : MonoBehaviour
             playerMovement.animator.SetFloat("Speed", 0f);
             playerMovement.animator.SetFloat("VerticalSpeed", 0f);
             playerMovement.enabled = false;
-            Tutorial.StartTapAnimation(Area);
+
+            float time = 2.5f;
+            switch (Area)
+            {
+                case Tutorial.Area.Shoot:
+                    Tutorial.ActivateCamera(1);
+                    break;
+
+                case Tutorial.Area.Swap:
+                    Tutorial.ActivateCamera(2);
+                    break;
+            }
+
+            StartCoroutine(Tutorial.WaitToStartAnimation(time, Area, Tutorial.StartTapAnimation));
         }
     }
 }

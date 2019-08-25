@@ -3,6 +3,7 @@
 public class TutorialObject : MonoBehaviour
 {
     public Tutorial Tutorial;
+    public GameObject Trigger;
 
     private RectTransform rectTransform;
     private Vector3[] corners;
@@ -23,7 +24,7 @@ public class TutorialObject : MonoBehaviour
             bool objectTouched = TouchIsInBounds(touch.position, corners[0], corners[2]);
             if (objectTouched)
             {
-                Tutorial.StopAnimation();
+                Tutorial.AdvanceTutorial(Trigger);
                 gameObject.SetActive(false);
                 break;
             }

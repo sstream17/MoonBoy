@@ -1,4 +1,4 @@
-﻿using Cinemachine;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
@@ -24,10 +24,11 @@ public class Tutorial : MonoBehaviour
 
     public Weapon[] enemyWeapons;
 
-    public GameObject cameraOne;
-    public GameObject cameraTwo;
+    public GameObject[] Cameras;
 
     public enum Area { Shoot = 0, Swap = 1, Toggle = 2 };
+
+    private int currentStage = 0;
 
     void Awake()
     {
@@ -35,15 +36,21 @@ public class Tutorial : MonoBehaviour
     }
 
 
-    IEnumerator WaitToStartAnimation()
+    IEnumerator WaitToStartAnimation(float time, Action methodToCall)
     {
-        yield return new WaitForSecondsRealtime(2f);
-        StartJoystickAnimation();
+        yield return new WaitForSecondsRealtime(time);
+        methodToCall();
+    }
+
+    public IEnumerator WaitToStartAnimation(float time, Area area, Action<Area> methodToCall)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        methodToCall(area);
     }
 
     void Start()
     {
-        StartCoroutine(WaitToStartAnimation());
+        StartCoroutine(WaitToStartAnimation(2f, StartJoystickAnimation));
     }
 
     private void StartJoystickAnimation()
@@ -59,10 +66,7 @@ public class Tutorial : MonoBehaviour
         switch (area)
         {
             case Area.Shoot:
-                ShootTrigger.SetActive(true);
-                ShootArea.SetActive(true);
                 Cursor.transform.localPosition = CursorPosition_Shoot;
-                ActivateCameraTwo();
                 break;
 
             case Area.Swap:
@@ -72,8 +76,6 @@ public class Tutorial : MonoBehaviour
                 break;
 
             case Area.Toggle:
-                ToggleTrigger.SetActive(true);
-                ToggleButton.SetActive(true);
                 Cursor.transform.localPosition = CursorPosition_Toggle;
                 break;
         }
@@ -87,6 +89,38 @@ public class Tutorial : MonoBehaviour
         CursorAnimator.SetTrigger("Hide");
     }
 
+    public void AdvanceTutorial(GameObject trigger)
+    {
+        if (trigger != null)
+        {
+            trigger.SetActive(false);
+        }
+
+        StopAnimation();
+        currentStage = currentStage + 1;
+
+        switch (currentStage)
+        {
+            case 1:
+                ShootTrigger.SetActive(true);
+                ShootArea.SetActive(true);
+                break;
+            case 2:
+                ActivateCamera(0);
+                break;
+            case 3:
+                ActivateCamera(0);
+                break;
+        }
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            playerMovement.enabled = true;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Player player = hitInfo.GetComponent<Player>();
@@ -97,15 +131,18 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    public void ActivateCameraTwo()
+    public void ActivateCamera(int index)
     {
-        cameraTwo.SetActive(true);
-        cameraOne.SetActive(false);
-    }
-
-    public void ActivateCameraOne()
-    {
-        cameraOne.SetActive(true);
-        cameraTwo.SetActive(false);
+        for (int i = 0; i < Cameras.Length; i++)
+        {
+            if (i == index)
+            {
+                Cameras[i].SetActive(true);
+            }
+            else
+            {
+                Cameras[i].SetActive(false);
+            }
+        }
     }
 }
