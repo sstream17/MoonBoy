@@ -6,6 +6,7 @@ public class Tutorial : MonoBehaviour
 {
     public LevelTransition LevelTransition;
 
+    public GameObject Joystick;
     public GameObject ShootArea;
     public GameObject SwapButton;
     public GameObject ToggleButton;
@@ -133,6 +134,7 @@ public class Tutorial : MonoBehaviour
 
     private void StartJoystickAnimation()
     {
+        Joystick.SetActive(true);
         JoystickTrigger.SetActive(true);
         Cursor.transform.localPosition = CursorPosition_Joystick;
         Cursor.SetActive(true);

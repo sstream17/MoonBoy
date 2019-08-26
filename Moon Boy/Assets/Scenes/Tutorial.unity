@@ -613,7 +613,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7252715791131205676}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1962433982}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
@@ -1994,6 +1994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelTransition: {fileID: 1968520535868919345}
+  Joystick: {fileID: 1962433982}
   ShootArea: {fileID: 7361314}
   SwapButton: {fileID: 1497869273}
   ToggleButton: {fileID: 430683754}
@@ -2017,7 +2018,7 @@ MonoBehaviour:
   - {fileID: 1173157417}
   - {fileID: 1360081423}
   - {fileID: 238698230}
-  WaitingForGrenades: 0
+  WaitingForGrenade: 0
 --- !u!61 &970373033
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2727,7 +2728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tutorial: {fileID: 970373032}
-  Trigger: {fileID: 0}
+  Trigger: {fileID: 2061306338}
 --- !u!114 &1501052029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3044,7 +3045,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748636603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6900005, y: 4.000002, z: -5}
+  m_LocalPosition: {x: 4.46, y: 4.0000005, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1165743151}
@@ -3316,6 +3317,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847315250}
   m_CullTransparentMesh: 0
+--- !u!1 &1962433982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5476405713915797390, guid: 8dbac6bebb2694a43a88e90476895687,
+    type: 3}
+  m_PrefabInstance: {fileID: 7252715791131205676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2044231368 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7252715789917462244, guid: 8dbac6bebb2694a43a88e90476895687,
@@ -3999,6 +4006,11 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7072338089891088627, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476405713915797390, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
       propertyPath: m_IsActive
       value: 0
