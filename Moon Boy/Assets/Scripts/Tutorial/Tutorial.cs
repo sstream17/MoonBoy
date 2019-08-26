@@ -30,6 +30,8 @@ public class Tutorial : MonoBehaviour
 
     private int currentStage = 0;
 
+    private Camera mainCamera;
+
     void Awake()
     {
         GameControl.control.enemyWeapons = enemyWeapons;
@@ -42,14 +44,19 @@ public class Tutorial : MonoBehaviour
         methodToCall();
     }
 
-    public IEnumerator WaitToStartAnimation(float time, Area area, Action<Area> methodToCall)
+    public IEnumerator WaitToStartAnimation(float cameraHeight, Area area, Action<Area> methodToCall)
     {
-        yield return new WaitForSecondsRealtime(time);
+        while (mainCamera.transform.position.y > cameraHeight + 0.01f)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
         methodToCall(area);
     }
 
     void Start()
     {
+        mainCamera = Camera.main;
         StartCoroutine(WaitToStartAnimation(2f, StartJoystickAnimation));
     }
 

@@ -5,6 +5,9 @@ public class TutorialTrigger : MonoBehaviour
     public Tutorial Tutorial;
     public Tutorial.Area Area;
 
+    private readonly float cameraTwoHeight = 16.2f;
+    private readonly float cameraThreeHeight = 16.2f;
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Player player = hitInfo.GetComponent<Player>();
@@ -17,20 +20,22 @@ public class TutorialTrigger : MonoBehaviour
             playerMovement.animator.SetFloat("VerticalSpeed", 0f);
             playerMovement.enabled = false;
 
-            float time = 2.5f;
+            float cameraHeight = Mathf.Infinity;
             switch (Area)
             {
                 case Tutorial.Area.Shoot:
                     Tutorial.ActivateCamera(1);
+                    cameraHeight = cameraTwoHeight;
                     break;
 
                 case Tutorial.Area.Swap:
                     ExpandWeaponSpawn();
                     Tutorial.ActivateCamera(2);
+                    cameraHeight = cameraThreeHeight;
                     break;
             }
 
-            StartCoroutine(Tutorial.WaitToStartAnimation(time, Area, Tutorial.StartTapAnimation));
+            StartCoroutine(Tutorial.WaitToStartAnimation(cameraHeight, Area, Tutorial.StartTapAnimation));
         }
     }
 
