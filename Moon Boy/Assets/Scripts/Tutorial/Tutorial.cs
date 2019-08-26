@@ -14,6 +14,7 @@ public class Tutorial : MonoBehaviour
     public GameObject ShootTrigger;
     public GameObject SwapTrigger;
     public GameObject ToggleTrigger;
+    public GameObject GrenadeTrigger;
 
     public GameObject Cursor;
     public Animator CursorAnimator;
@@ -21,16 +22,24 @@ public class Tutorial : MonoBehaviour
     public Vector2 CursorPosition_Shoot;
     public Vector2 CursorPosition_Swap;
     public Vector2 CursorPosition_Toggle;
+    public Vector2 CursorPosition_Grenade;
+
+    public PrefabWeapon PlayerWeapon;
 
     public Weapon[] enemyWeapons;
 
     public GameObject[] Cameras;
 
-    public enum Area { Shoot = 0, Swap = 1, Toggle = 2 };
+    public enum Area { Shoot = 0, Swap = 1, Toggle = 2, Grenade = 3 };
+
+    public bool WaitingForGrenade = false;
 
     private int currentStage = 0;
 
     private Camera mainCamera;
+
+    private bool mustToggleToGrenade = false;
+    private bool mustThrowGrenade = false;
 
     void Awake()
     {
@@ -38,10 +47,11 @@ public class Tutorial : MonoBehaviour
     }
 
 
-    IEnumerator WaitToStartAnimation(float time, Action methodToCall)
+    IEnumerator WaitToStartJoystickAnimation(float time, Action methodToCall)
     {
         yield return new WaitForSecondsRealtime(time);
         methodToCall();
+        EnablePlayerMovement();
     }
 
     public IEnumerator WaitToStartAnimation(float cameraHeight, Area area, Action<Area> methodToCall)
@@ -54,10 +64,71 @@ public class Tutorial : MonoBehaviour
         methodToCall(area);
     }
 
+    private void EnablePlayerMovement()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            playerMovement.enabled = true;
+        }
+    }
+
+    private void DisablePlayerMovement()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+            rb.velocity = Vector2.zero;
+            playerMovement.animator.SetFloat("Speed", 0f);
+            playerMovement.animator.SetFloat("VerticalSpeed", 0f);
+            playerMovement.enabled = false;
+        }
+    }
+
     void Start()
     {
+        DisablePlayerMovement();
         mainCamera = Camera.main;
-        StartCoroutine(WaitToStartAnimation(2f, StartJoystickAnimation));
+        StartCoroutine(WaitToStartJoystickAnimation(2f, StartJoystickAnimation));
+    }
+
+    private void Update()
+    {
+        if (WaitingForGrenade)
+        {
+            if (!PlayerWeapon.isGrenade)
+            {
+                if (!mustToggleToGrenade)
+                {
+                    if (currentStage == 4)
+                    {
+                        currentStage = 3;
+                    }
+
+                    StartTapAnimation(Area.Toggle);
+                }
+                mustToggleToGrenade = true;
+                mustThrowGrenade = false;
+                GrenadeTrigger.SetActive(false);
+                ShootArea.SetActive(false);
+            }
+            else
+            {
+                if (!mustThrowGrenade)
+                {
+                    StartTapAnimation(Area.Grenade);
+                }
+                mustToggleToGrenade = false;
+                mustThrowGrenade = true;
+                GrenadeTrigger.SetActive(true);
+                ShootArea.SetActive(true);
+            }
+        }
+
+
     }
 
     private void StartJoystickAnimation()
@@ -83,7 +154,13 @@ public class Tutorial : MonoBehaviour
                 break;
 
             case Area.Toggle:
+                ToggleTrigger.SetActive(true);
+                ToggleButton.SetActive(true);
                 Cursor.transform.localPosition = CursorPosition_Toggle;
+                break;
+
+            case Area.Grenade:
+                Cursor.transform.localPosition = CursorPosition_Grenade;
                 break;
         }
 
@@ -112,20 +189,25 @@ public class Tutorial : MonoBehaviour
                 ShootTrigger.SetActive(true);
                 ShootArea.SetActive(true);
                 break;
+
             case 2:
                 ActivateCamera(0);
                 break;
+
             case 3:
+                ActivateCamera(0);
+                break;
+
+            case 4:
+                return;
+
+            case 5:
+                WaitingForGrenade = false;
                 ActivateCamera(0);
                 break;
         }
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
-            playerMovement.enabled = true;
-        }
+        EnablePlayerMovement();
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)

@@ -7,6 +7,7 @@ public class TutorialTrigger : MonoBehaviour
 
     private readonly float cameraTwoHeight = 16.2f;
     private readonly float cameraThreeHeight = 16.2f;
+    private readonly float cameraFourHeight = 15.9f;
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
@@ -32,6 +33,12 @@ public class TutorialTrigger : MonoBehaviour
                     ExpandWeaponSpawn();
                     Tutorial.ActivateCamera(2);
                     cameraHeight = cameraThreeHeight;
+                    break;
+
+                case Tutorial.Area.Toggle:
+                    Tutorial.ActivateCamera(3);
+                    cameraHeight = cameraFourHeight;
+                    Tutorial.WaitingForGrenade = true;
                     break;
             }
 
