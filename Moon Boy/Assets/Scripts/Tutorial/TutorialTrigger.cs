@@ -52,7 +52,7 @@ public class TutorialTrigger : MonoBehaviour
         GameObject weaponSpawn = GameObject.FindGameObjectWithTag("Collectible");
         if (weaponSpawn != null)
         {
-            GameObject trigger = weaponSpawn.transform.GetChild(0).gameObject;
+            GameObject trigger = GameObject.Find("Trigger");
             if (trigger != null)
             {
                 CircleCollider2D circleCollider = trigger.GetComponent<CircleCollider2D>();
