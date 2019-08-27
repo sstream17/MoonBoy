@@ -25,6 +25,8 @@ public class Tutorial : MonoBehaviour
     public Vector2 CursorPosition_Toggle;
     public Vector2 CursorPosition_Grenade;
 
+    public Animator ArrowAnimator;
+
     public PrefabWeapon PlayerWeapon;
 
     public Weapon[] enemyWeapons;
@@ -216,6 +218,7 @@ public class Tutorial : MonoBehaviour
                 break;
         }
 
+        ArrowAnimator.SetTrigger("Continue");
         EnablePlayerMovement();
     }
 
