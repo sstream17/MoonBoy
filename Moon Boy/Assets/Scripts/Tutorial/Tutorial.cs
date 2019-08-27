@@ -55,10 +55,12 @@ public class Tutorial : MonoBehaviour
         EnablePlayerMovement();
     }
 
-    public IEnumerator WaitToStartAnimation(float cameraHeight, Area area, Action<Area> methodToCall)
+    public IEnumerator WaitToStartAnimation(Vector2 cameraPosition, Area area, Action<Area> methodToCall)
     {
-        while (mainCamera.transform.position.y > cameraHeight + 0.01f)
+        float distance = (cameraPosition - (Vector2) mainCamera.transform.position).magnitude;
+        while (distance > 0.05f)
         {
+            distance = (cameraPosition - (Vector2) mainCamera.transform.position).magnitude;
             yield return new WaitForEndOfFrame();
         }
 

@@ -5,9 +5,9 @@ public class TutorialTrigger : MonoBehaviour
     public Tutorial Tutorial;
     public Tutorial.Area Area;
 
-    private readonly float cameraTwoHeight = 16.2f;
-    private readonly float cameraThreeHeight = 16.2f;
-    private readonly float cameraFourHeight = 15.9f;
+    private readonly Vector2 cameraTwoPosition = new Vector2(114f,16.2f);
+    private readonly Vector2 cameraThreePosition = new Vector2(125f, 16.2f);
+    private readonly Vector2 cameraFourPosition = new Vector2(152f, 15.9f);
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
@@ -21,28 +21,28 @@ public class TutorialTrigger : MonoBehaviour
             playerMovement.animator.SetFloat("VerticalSpeed", 0f);
             playerMovement.enabled = false;
 
-            float cameraHeight = Mathf.Infinity;
+            Vector2 cameraPosition = new Vector2(Mathf.Infinity, Mathf.Infinity);
             switch (Area)
             {
                 case Tutorial.Area.Shoot:
                     Tutorial.ActivateCamera(1);
-                    cameraHeight = cameraTwoHeight;
+                    cameraPosition = cameraTwoPosition;
                     break;
 
                 case Tutorial.Area.Swap:
                     ExpandWeaponSpawn();
                     Tutorial.ActivateCamera(2);
-                    cameraHeight = cameraThreeHeight;
+                    cameraPosition = cameraThreePosition;
                     break;
 
                 case Tutorial.Area.Toggle:
                     Tutorial.ActivateCamera(3);
-                    cameraHeight = cameraFourHeight;
+                    cameraPosition = cameraFourPosition;
                     Tutorial.WaitingForGrenade = true;
                     break;
             }
 
-            StartCoroutine(Tutorial.WaitToStartAnimation(cameraHeight, Area, Tutorial.StartTapAnimation));
+            StartCoroutine(Tutorial.WaitToStartAnimation(cameraPosition, Area, Tutorial.StartTapAnimation));
         }
     }
 
