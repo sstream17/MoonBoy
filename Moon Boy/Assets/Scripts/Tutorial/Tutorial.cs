@@ -47,9 +47,8 @@ public class Tutorial : MonoBehaviour
     private bool firstToggle = true;
 
     private RectTransform rectTransform;
-    private float shootAreaWidth;
-    private float shootAreaHeight;
-    private Vector2 shootAreaPosition;
+
+    private Dictionary<string, float> shootAreaInitialValues = new Dictionary<string, float>();
 
     private Dictionary<string, float> shootTriggerValues = new Dictionary<string, float>
     {
@@ -124,9 +123,13 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         rectTransform = ShootArea.GetComponent<RectTransform>();
-        shootAreaWidth = rectTransform.rect.width;
-        shootAreaHeight = rectTransform.rect.height;
-        shootAreaPosition = rectTransform.localPosition;
+        shootAreaInitialValues = new Dictionary<string, float>
+        {
+            { "width", rectTransform.rect.width },
+            { "height", rectTransform.rect.height },
+            { "x", rectTransform.localPosition.x },
+            { "y", rectTransform.localPosition.y },
+        };
 
         DisablePlayerMovement();
         mainCamera = Camera.main;
@@ -224,6 +227,7 @@ public class Tutorial : MonoBehaviour
     IEnumerator WaitForGrenadeToExplode()
     {
         yield return new WaitForSeconds(5f);
+        SetShootAreaPosition(shootAreaInitialValues);
         ActivateCamera(0);
         ArrowAnimator.SetTrigger("Continue");
         EnablePlayerMovement();
