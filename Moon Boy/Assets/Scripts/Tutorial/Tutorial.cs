@@ -64,6 +64,11 @@ public class Tutorial : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        if (area.Equals(Area.Toggle))
+        {
+            WaitingForGrenade = true;
+        }
+
         methodToCall(area);
     }
 

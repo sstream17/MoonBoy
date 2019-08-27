@@ -38,7 +38,6 @@ public class TutorialTrigger : MonoBehaviour
                 case Tutorial.Area.Toggle:
                     Tutorial.ActivateCamera(3);
                     cameraPosition = cameraFourPosition;
-                    Tutorial.WaitingForGrenade = true;
                     break;
             }
 
