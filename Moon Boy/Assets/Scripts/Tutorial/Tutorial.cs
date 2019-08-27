@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
@@ -43,6 +44,27 @@ public class Tutorial : MonoBehaviour
 
     private bool mustToggleToGrenade = false;
     private bool mustThrowGrenade = false;
+
+    private RectTransform rectTransform;
+    private float shootAreaWidth;
+    private float shootAreaHeight;
+    private Vector2 shootAreaPosition;
+
+    private Dictionary<string, float> shootTriggerValues = new Dictionary<string, float>
+    {
+        { "width", 300f }, 
+        { "height", 200f }, 
+        { "x", 500f }, 
+        { "y", 20f }, 
+    };
+
+    private Dictionary<string, float> grenadeTriggerValues = new Dictionary<string, float>
+    {
+        { "width", 200f },
+        { "height", 200f },
+        { "x", 265f },
+        { "y", 310f },
+    };
 
     void Awake()
     {
@@ -100,6 +122,11 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
+        rectTransform = ShootArea.GetComponent<RectTransform>();
+        shootAreaWidth = rectTransform.rect.width;
+        shootAreaHeight = rectTransform.rect.height;
+        shootAreaPosition = rectTransform.localPosition;
+
         DisablePlayerMovement();
         mainCamera = Camera.main;
         StartCoroutine(WaitToStartJoystickAnimation(2f, StartJoystickAnimation));
@@ -197,6 +224,7 @@ public class Tutorial : MonoBehaviour
         switch (currentStage)
         {
             case 1:
+                SetShootAreaPosition(shootTriggerValues);
                 ShootTrigger.SetActive(true);
                 ShootArea.SetActive(true);
                 break;
@@ -206,6 +234,7 @@ public class Tutorial : MonoBehaviour
                 break;
 
             case 3:
+                SetShootAreaPosition(grenadeTriggerValues);
                 ActivateCamera(0);
                 break;
 
@@ -245,5 +274,20 @@ public class Tutorial : MonoBehaviour
                 Cameras[i].SetActive(false);
             }
         }
+    }
+
+    private void SetShootAreaPosition(Dictionary<string, float> values)
+    {
+        rectTransform.sizeDelta = new Vector2
+        {
+            x = values["width"],
+            y = values["height"],
+        };
+
+        rectTransform.localPosition = new Vector2
+        {
+            x = values["x"],
+            y = values["y"]
+        };
     }
 }
