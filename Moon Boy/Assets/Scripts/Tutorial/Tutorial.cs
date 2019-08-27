@@ -44,6 +44,7 @@ public class Tutorial : MonoBehaviour
 
     private bool mustToggleToGrenade = false;
     private bool mustThrowGrenade = false;
+    private bool firstToggle = true;
 
     private RectTransform rectTransform;
     private float shootAreaWidth;
@@ -79,7 +80,7 @@ public class Tutorial : MonoBehaviour
         EnablePlayerMovement();
     }
 
-    public IEnumerator WaitToStartAnimation(Vector2 cameraPosition, Area area, Action<Area> methodToCall)
+    public IEnumerator WaitToStartAnimation(Vector2 cameraPosition, Area area, float time, Action<Area, float> methodToCall)
     {
         float distance = (cameraPosition - (Vector2) mainCamera.transform.position).magnitude;
         while (distance > 0.05f)
@@ -93,7 +94,7 @@ public class Tutorial : MonoBehaviour
             WaitingForGrenade = true;
         }
 
-        methodToCall(area);
+        methodToCall(area, time);
     }
 
     private void EnablePlayerMovement()
@@ -136,6 +137,8 @@ public class Tutorial : MonoBehaviour
     {
         if (WaitingForGrenade)
         {
+            float time = firstToggle ? 1f : 0f;
+            firstToggle = false;
             if (!PlayerWeapon.isGrenade)
             {
                 if (!mustToggleToGrenade)
@@ -145,7 +148,7 @@ public class Tutorial : MonoBehaviour
                         currentStage = 3;
                     }
 
-                    StartTapAnimation(Area.Toggle);
+                    StartTapAnimation(Area.Toggle, time);
                 }
                 mustToggleToGrenade = true;
                 mustThrowGrenade = false;
@@ -156,7 +159,7 @@ public class Tutorial : MonoBehaviour
             {
                 if (!mustThrowGrenade)
                 {
-                    StartTapAnimation(Area.Grenade);
+                    StartTapAnimation(Area.Grenade, 0f);
                 }
                 mustToggleToGrenade = false;
                 mustThrowGrenade = true;
@@ -173,11 +176,17 @@ public class Tutorial : MonoBehaviour
         Joystick.SetActive(true);
         JoystickTrigger.SetActive(true);
         Cursor.transform.localPosition = CursorPosition_Joystick;
-        Cursor.SetActive(true);
-        CursorAnimator.SetTrigger("Joystick");
+        StartCoroutine(DelayCursorAnimation(1f, "Joystick"));
     }
 
-    public void StartTapAnimation(Area area)
+    IEnumerator DelayCursorAnimation(float time, string animation)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        Cursor.SetActive(true);
+        CursorAnimator.SetTrigger(animation);
+    }
+
+    public void StartTapAnimation(Area area, float time)
     {
         switch (area)
         {
@@ -204,8 +213,7 @@ public class Tutorial : MonoBehaviour
                 break;
         }
 
-        Cursor.SetActive(true);
-        CursorAnimator.SetTrigger("Tap");
+        StartCoroutine(DelayCursorAnimation(time, "Tap"));
     }
 
     public void StopAnimation()

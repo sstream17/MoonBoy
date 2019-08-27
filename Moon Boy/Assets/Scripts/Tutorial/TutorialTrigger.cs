@@ -22,11 +22,13 @@ public class TutorialTrigger : MonoBehaviour
             playerMovement.enabled = false;
 
             Vector2 cameraPosition = new Vector2(Mathf.Infinity, Mathf.Infinity);
+            float time = 1f;
             switch (Area)
             {
                 case Tutorial.Area.Shoot:
                     Tutorial.ActivateCamera(1);
                     cameraPosition = cameraTwoPosition;
+                    time = 0f;
                     break;
 
                 case Tutorial.Area.Swap:
@@ -41,7 +43,7 @@ public class TutorialTrigger : MonoBehaviour
                     break;
             }
 
-            StartCoroutine(Tutorial.WaitToStartAnimation(cameraPosition, Area, Tutorial.StartTapAnimation));
+            StartCoroutine(Tutorial.WaitToStartAnimation(cameraPosition, Area, time, Tutorial.StartTapAnimation));
         }
     }
 
