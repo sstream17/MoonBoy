@@ -213,6 +213,14 @@ public class Tutorial : MonoBehaviour
         CursorAnimator.SetTrigger("Hide");
     }
 
+    IEnumerator WaitForGrenadeToExplode()
+    {
+        yield return new WaitForSeconds(5f);
+        ActivateCamera(0);
+        ArrowAnimator.SetTrigger("Continue");
+        EnablePlayerMovement();
+    }
+
     public void AdvanceTutorial(GameObject trigger)
     {
         if (trigger != null)
@@ -243,8 +251,8 @@ public class Tutorial : MonoBehaviour
 
             case 5:
                 WaitingForGrenade = false;
-                ActivateCamera(0);
-                break;
+                StartCoroutine(WaitForGrenadeToExplode());
+                return;
         }
 
         ArrowAnimator.SetTrigger("Continue");
