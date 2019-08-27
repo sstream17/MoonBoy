@@ -182,6 +182,8 @@ public class Tutorial : MonoBehaviour
         switch (area)
         {
             case Area.Shoot:
+                ShootTrigger.SetActive(true);
+                ShootArea.SetActive(true);
                 Cursor.transform.localPosition = CursorPosition_Shoot;
                 break;
 
@@ -225,8 +227,6 @@ public class Tutorial : MonoBehaviour
         {
             case 1:
                 SetShootAreaPosition(shootTriggerValues);
-                ShootTrigger.SetActive(true);
-                ShootArea.SetActive(true);
                 break;
 
             case 2:
