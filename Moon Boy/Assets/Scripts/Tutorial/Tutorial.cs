@@ -20,11 +20,6 @@ public class Tutorial : MonoBehaviour
 
     public GameObject Cursor;
     public Animator CursorAnimator;
-    public Vector2 CursorPosition_Joystick;
-    public Vector2 CursorPosition_Shoot;
-    public Vector2 CursorPosition_Swap;
-    public Vector2 CursorPosition_Toggle;
-    public Vector2 CursorPosition_Grenade;
 
     public Animator ArrowAnimator;
 
@@ -174,11 +169,17 @@ public class Tutorial : MonoBehaviour
 
     }
 
+    private void MoveCursor(Transform parent)
+    {
+        Cursor.transform.SetParent(parent);
+        Cursor.transform.localPosition = new Vector3(0f, 0f, 0f);
+    }
+
     private void StartJoystickAnimation()
     {
         Joystick.SetActive(true);
         JoystickTrigger.SetActive(true);
-        Cursor.transform.localPosition = CursorPosition_Joystick;
+        MoveCursor(Joystick.transform);
         StartCoroutine(DelayCursorAnimation(1f, "Joystick"));
     }
 
@@ -196,23 +197,23 @@ public class Tutorial : MonoBehaviour
             case Area.Shoot:
                 ShootTrigger.SetActive(true);
                 ShootArea.SetActive(true);
-                Cursor.transform.localPosition = CursorPosition_Shoot;
+                MoveCursor(ShootArea.transform);
                 break;
 
             case Area.Swap:
                 SwapTrigger.SetActive(true);
                 SwapButton.SetActive(true);
-                Cursor.transform.localPosition = CursorPosition_Swap;
+                MoveCursor(SwapTrigger.transform);
                 break;
 
             case Area.Toggle:
                 ToggleTrigger.SetActive(true);
                 ToggleButton.SetActive(true);
-                Cursor.transform.localPosition = CursorPosition_Toggle;
+                MoveCursor(ToggleTrigger.transform);
                 break;
 
             case Area.Grenade:
-                Cursor.transform.localPosition = CursorPosition_Grenade;
+                MoveCursor(GrenadeTrigger.transform);
                 break;
         }
 

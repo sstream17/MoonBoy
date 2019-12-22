@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class TutorialObject : MonoBehaviour
 {
@@ -7,16 +8,43 @@ public class TutorialObject : MonoBehaviour
 
     private RectTransform rectTransform;
     private Vector3[] corners;
+    private bool updatingCorners = false;
+    private int numberOfSameIterations = 3;
+    private int currentCountSameIterations = 0;
+
+    private Vector3[] WaitForCorners(Vector3[] corners)
+    {
+        Vector3[] initialCorners = corners;
+        Vector3[] newCorners = new Vector3[4];
+        rectTransform.GetWorldCorners(newCorners);
+        if (initialCorners.SequenceEqual(newCorners))
+        {
+            currentCountSameIterations = currentCountSameIterations + 1;
+        }
+
+        if (currentCountSameIterations >= numberOfSameIterations)
+        {
+            updatingCorners = false;
+        }
+
+        return newCorners;
+    }
 
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         corners = new Vector3[4];
         rectTransform.GetWorldCorners(corners);
+        updatingCorners = true;
     }
 
     private void Update()
     {
+        if (updatingCorners)
+        {
+            corners = WaitForCorners(corners);
+        }
+
         var touches = Input.touchCount;
         for (int i = 0; i < touches; i++)
         {
