@@ -27,6 +27,9 @@ public class Tutorial : MonoBehaviour
 
     public Weapon[] enemyWeapons;
 
+    public GameObject enemy;
+    public GameObject turret;
+
     public GameObject[] Cameras;
 
     public enum Area { Shoot = 0, Swap = 1, Toggle = 2, Grenade = 3 };
@@ -44,22 +47,6 @@ public class Tutorial : MonoBehaviour
     private RectTransform rectTransform;
 
     private Dictionary<string, float> shootAreaInitialValues = new Dictionary<string, float>();
-
-    private Dictionary<string, float> shootTriggerValues = new Dictionary<string, float>
-    {
-        { "width", 300f }, 
-        { "height", 200f }, 
-        { "x", 500f }, 
-        { "y", 20f }, 
-    };
-
-    private Dictionary<string, float> grenadeTriggerValues = new Dictionary<string, float>
-    {
-        { "width", 200f },
-        { "height", 200f },
-        { "x", 265f },
-        { "y", 310f },
-    };
 
     void Awake()
     {
@@ -122,8 +109,8 @@ public class Tutorial : MonoBehaviour
         {
             { "width", rectTransform.rect.width },
             { "height", rectTransform.rect.height },
-            { "x", rectTransform.localPosition.x },
-            { "y", rectTransform.localPosition.y },
+            { "x", rectTransform.position.x },
+            { "y", rectTransform.position.y },
         };
 
         DisablePlayerMovement();
@@ -195,6 +182,15 @@ public class Tutorial : MonoBehaviour
         switch (area)
         {
             case Area.Shoot:
+                var enemyPosition = mainCamera.WorldToScreenPoint(enemy.transform.position);
+                var shootTriggerValues = new Dictionary<string, float>
+                {
+                    { "width", 300f },
+                    { "height", 200f },
+                    { "x", enemyPosition.x },
+                    { "y", enemyPosition.y }
+                };
+                SetShootAreaPosition(shootTriggerValues);
                 ShootTrigger.SetActive(true);
                 ShootArea.SetActive(true);
                 MoveCursor(ShootArea.transform);
@@ -213,6 +209,17 @@ public class Tutorial : MonoBehaviour
                 break;
 
             case Area.Grenade:
+                var turretPosition = mainCamera.WorldToScreenPoint(turret.transform.position);
+                turretPosition.x = turretPosition.x - Screen.width / 12f;
+                turretPosition.y = turretPosition.y + Screen.height / 4f;
+                var grenadeTriggerValues = new Dictionary<string, float>
+                {
+                    { "width", 200f },
+                    { "height", 200f },
+                    { "x", turretPosition.x },
+                    { "y", turretPosition.y }
+                };
+                SetShootAreaPosition(grenadeTriggerValues);
                 MoveCursor(GrenadeTrigger.transform);
                 break;
         }
@@ -246,16 +253,11 @@ public class Tutorial : MonoBehaviour
 
         switch (currentStage)
         {
-            case 1:
-                SetShootAreaPosition(shootTriggerValues);
-                break;
-
             case 2:
                 ActivateCamera(0);
                 break;
 
             case 3:
-                SetShootAreaPosition(grenadeTriggerValues);
                 ActivateCamera(0);
                 break;
 
@@ -305,7 +307,7 @@ public class Tutorial : MonoBehaviour
             y = values["height"],
         };
 
-        rectTransform.localPosition = new Vector2
+        rectTransform.position = new Vector2
         {
             x = values["x"],
             y = values["y"]
