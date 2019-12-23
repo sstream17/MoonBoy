@@ -2216,6 +2216,7 @@ GameObject:
   - component: {fileID: 7252715791027900788}
   - component: {fileID: 7252715791027900795}
   - component: {fileID: 7252715791027900794}
+  - component: {fileID: 9166380248185107101}
   m_Layer: 5
   m_Name: Toggle Button
   m_TagString: ToggleButton
@@ -2330,6 +2331,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9166380248185107101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252715791027900792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1970d7d6521a91b47bdfd786f358e949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7252715791274236247
 GameObject:
   m_ObjectHideFlags: 0
