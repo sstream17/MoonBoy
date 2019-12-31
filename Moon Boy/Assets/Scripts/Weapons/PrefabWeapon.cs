@@ -15,6 +15,7 @@ public class PrefabWeapon : MonoBehaviour {
 	public Transform firePoint;
 	public GameObject grenadePrefab;
 	public bool isGrenade = false;
+    public ShootArea ShootArea;
 
 	private bool hasShot = false;
 	private static bool allowShoot = true;
@@ -53,12 +54,6 @@ public class PrefabWeapon : MonoBehaviour {
 		grenadeDisplay.text = grenades.ToString("0");
 	}
 
-
-	public void SendShoot() {
-		hasShot = true;
-	}
-
-
 	// Start is called before the first frame update
 	void Start() {
 		SetTimer();
@@ -68,6 +63,11 @@ public class PrefabWeapon : MonoBehaviour {
 
 
 	void Update() {
+        if (ShootArea.buttonPressed)
+        {
+            hasShot = true;
+        }
+
 		if (hasShot && allowShoot && !isGrenade && GameControl.control.playerAmmo > 0) {
 			allowShoot = false;
 			hasShot = false;
