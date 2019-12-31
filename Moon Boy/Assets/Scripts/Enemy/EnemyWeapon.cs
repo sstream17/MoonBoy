@@ -7,6 +7,8 @@ public class EnemyWeapon : MonoBehaviour {
 	public Weapon weapon;
 	public Transform firePoint;
     public Transform target;
+    public int ammo = 40;
+
 	private EnemyShooterAI enemy;
 
     [HideInInspector]
@@ -32,8 +34,12 @@ public class EnemyWeapon : MonoBehaviour {
 
 
 	void Shoot() {
-		GameObject bulletClone = Instantiate(weapon.enemyBulletPrefab, firePoint.position, firePoint.rotation, transform);
-		Destroy(bulletClone, 10);
+        if (ammo > 0)
+        {
+            ammo = ammo - 1;
+            GameObject bulletClone = Instantiate(weapon.enemyBulletPrefab, firePoint.position, firePoint.rotation, transform);
+            Destroy(bulletClone, 10);
+        }
 	}
 
 
@@ -84,7 +90,8 @@ public class EnemyWeapon : MonoBehaviour {
 		int randomWeaponIndex = (int) Mathf.Floor(Random.value * GameControl.control.enemyWeapons.Length);
 		weapon = GameControl.control.enemyWeapons[randomWeaponIndex];
         enemy = GetComponentInParent<EnemyShooterAI>();
-		startingDistance = enemy.startingDistance;
+        ammo = (int)Mathf.Floor(Random.Range(0f, 50f));
+        startingDistance = enemy.startingDistance;
         SetTimer();
         layerMask = LayerMask.GetMask("Player", "Ground", "Enemy", "Turret");
         if (target == null) {
