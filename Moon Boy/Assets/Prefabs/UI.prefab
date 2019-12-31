@@ -1876,6 +1876,7 @@ GameObject:
   - component: {fileID: 7252715790353480238}
   - component: {fileID: 7252715790353480237}
   - component: {fileID: 7252715790353480236}
+  - component: {fileID: 6774999520807651059}
   m_Layer: 5
   m_Name: Shoot Area
   m_TagString: ShootArea
@@ -1976,18 +1977,22 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7252715790353480237}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SendShoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &6774999520807651059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252715790353480146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c645bee02f6754bb4729870bc171cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabWeapon: {fileID: 0}
+  buttonPressed: 0
+  pointerPosition: {x: 0, y: 0}
 --- !u!1 &7252715790796535891
 GameObject:
   m_ObjectHideFlags: 0

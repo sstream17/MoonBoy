@@ -762,7 +762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734563739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.46, y: 4.0000005, z: -5}
+  m_LocalPosition: {x: 4.46, y: 4.0000005, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 197771530}
@@ -1564,7 +1564,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748636603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.190001, y: 4.000002, z: -5}
+  m_LocalPosition: {x: 4.46, y: 4.0000005, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1165743151}
@@ -1841,6 +1841,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21610192842264562, guid: 54c8472f80ab0194f8397fd2f9ca4119,
         type: 2}
+    - target: {fileID: 6774999520807651059, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
+      propertyPath: PrefabWeapon
+      value: 
+      objectReference: {fileID: 1639497595}
     - target: {fileID: 6964908820793831927, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
       propertyPath: m_IsActive
@@ -2061,6 +2066,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7252715790353480236, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252715790353480236, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1639497595}
@@ -2068,6 +2078,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SendShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252715790353480236, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252715790353480236, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7252715791027900792, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
