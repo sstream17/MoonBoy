@@ -2069,6 +2069,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SendShoot
       objectReference: {fileID: 0}
+    - target: {fileID: 7252715791027900792, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7252715791027900794, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2124,6 +2129,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AttemptSwap
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252715791456816042, guid: 8dbac6bebb2694a43a88e90476895687,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7252715791577400675, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
