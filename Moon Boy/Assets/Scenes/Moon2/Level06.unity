@@ -748,6 +748,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2119264135}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &842959843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6774999520807651059, guid: 8dbac6bebb2694a43a88e90476895687,
+    type: 3}
+  m_PrefabInstance: {fileID: 77280813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c645bee02f6754bb4729870bc171cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1011768052
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +805,7 @@ MonoBehaviour:
   enemyWeapons:
   - {fileID: 11400000, guid: a045a03b5cd3ee64885fe3fad322d8bf, type: 2}
   - {fileID: 11400000, guid: 42771f25a70709f41a6612defa07bee8, type: 2}
+  - {fileID: 11400000, guid: 0dcaf540d480b78428c1d18ceebe3dd3, type: 2}
   numberOfEnemies: 17
   deltaX: 3
   deltaY: 3
@@ -1308,7 +1321,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491187384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.46, y: 4.0000005, z: -5}
+  m_LocalPosition: {x: 5.46, y: 4.0000005, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1700439303}
@@ -1658,7 +1671,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798723471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6900005, y: 4.000002, z: -5}
+  m_LocalPosition: {x: 5.46, y: 4.0000005, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1043093616}
@@ -2018,5 +2031,10 @@ PrefabInstance:
       propertyPath: grenadeDisplay
       value: 
       objectReference: {fileID: 77280819}
+    - target: {fileID: 7824615418732647989, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: ShootArea
+      value: 
+      objectReference: {fileID: 842959843}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417c2b71e3e2cff4db18acfcfd136724, type: 3}
