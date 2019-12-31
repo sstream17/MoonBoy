@@ -297,6 +297,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameControl
       objectReference: {fileID: 0}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: playerWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 0dcaf540d480b78428c1d18ceebe3dd3,
+        type: 2}
+    - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
+        type: 3}
+      propertyPath: playerAmmo
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6204659009383529415, guid: 2d7c632285f1e2142906da34c9ba8f77,
         type: 3}
       propertyPath: m_RootOrder
@@ -762,7 +773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734563739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.46, y: 4.0000005, z: -5}
+  m_LocalPosition: {x: 5.46, y: 4.0000005, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 197771530}
@@ -1564,7 +1575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748636603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6900005, y: 4.000002, z: -5}
+  m_LocalPosition: {x: 5.46, y: 4.0000005, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1165743151}
@@ -1598,6 +1609,18 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1898873190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6774999520807651059, guid: 8dbac6bebb2694a43a88e90476895687,
+    type: 3}
+  m_PrefabInstance: {fileID: 7252715791131205676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c645bee02f6754bb4729870bc171cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2044231368 stripped
@@ -1797,6 +1820,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1639497595}
+    - target: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2218382049203131570, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
       propertyPath: m_fontAsset
@@ -2063,26 +2106,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSizeBase
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1639497595}
-    - target: {fileID: 0}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SendShoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7252715791027900792, guid: 8dbac6bebb2694a43a88e90476895687,
         type: 3}
@@ -2365,5 +2388,10 @@ PrefabInstance:
       propertyPath: grenadeDisplay
       value: 
       objectReference: {fileID: 150583677}
+    - target: {fileID: 7824615418732647989, guid: 417c2b71e3e2cff4db18acfcfd136724,
+        type: 3}
+      propertyPath: ShootArea
+      value: 
+      objectReference: {fileID: 1898873190}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 417c2b71e3e2cff4db18acfcfd136724, type: 3}
