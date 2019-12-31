@@ -306,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 6204659009383529414, guid: 2d7c632285f1e2142906da34c9ba8f77,
         type: 3}
       propertyPath: playerAmmo
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6204659009383529415, guid: 2d7c632285f1e2142906da34c9ba8f77,
         type: 3}
@@ -1575,7 +1575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748636603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.46, y: 4.0000005, z: -5}
+  m_LocalPosition: {x: 8.190001, y: 4.000002, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1165743151}
